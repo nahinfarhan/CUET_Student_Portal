@@ -8,12 +8,12 @@ package javaapplication1;
  *
  * @author nahinfarhan
  */
-public class Login_Teacher extends javax.swing.JFrame {
+public class Login_Student extends javax.swing.JFrame {
 
     /**
-     * Creates new form Login_Teacher
+     * Creates new form Login_Student
      */
-    public Login_Teacher() {
+    public Login_Student() {
         initComponents();
     }
 
@@ -26,6 +26,8 @@ public class Login_Teacher extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        label1 = new java.awt.Label();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -35,16 +37,21 @@ public class Login_Teacher extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         label3 = new java.awt.Label();
-        jLabel1 = new javax.swing.JLabel();
-        label1 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(800, 574));
         setMinimumSize(new java.awt.Dimension(800, 574));
-        setResizable(false);
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
+
+        label1.setFont(new java.awt.Font("Baloo Bhaijaan", 0, 28)); // NOI18N
+        label1.setText("Chittagong University of Engineering & Technology");
+        getContentPane().add(label1);
+        label1.setBounds(132, 44, 656, 47);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nahinfarhan/Desktop/CUET_Vector_ogo.svg.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 6, 122, 132);
 
         jPanel1.setBackground(new java.awt.Color(239, 242, 249));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
@@ -96,27 +103,17 @@ public class Login_Teacher extends javax.swing.JFrame {
         jButton2.setBounds(260, 190, 130, 23);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(200, 80, 440, 250);
+        jPanel2.setBounds(200, 60, 440, 250);
 
         label3.setAlignment(1);
         label3.setBackground(new java.awt.Color(148, 169, 216));
         label3.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        label3.setText("TEACHER LOGIN");
+        label3.setText("STUDENT LOGIN");
         jPanel1.add(label3);
-        label3.setBounds(330, 30, 150, 30);
+        label3.setBounds(330, 10, 150, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 148, 800, 426);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nahinfarhan/Desktop/CUET_Vector_ogo.svg.png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 6, 122, 132);
-
-        label1.setFont(new java.awt.Font("Baloo Bhaijaan", 0, 28)); // NOI18N
-        label1.setText("Chittagong University of Engineering & Technology");
-        getContentPane().add(label1);
-        label1.setBounds(132, 44, 656, 47);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,20 +139,20 @@ public class Login_Teacher extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login_Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_Teacher().setVisible(true);
+                new Login_Student().setVisible(true);
             }
         });
     }
