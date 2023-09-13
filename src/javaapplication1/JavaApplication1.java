@@ -17,6 +17,8 @@ public class JavaApplication1 {
         // TODO code application logic here
         //Edited by nahin
         //edited again
+        int x = 100;
+        System.out.print(x);
     }
     
 }
