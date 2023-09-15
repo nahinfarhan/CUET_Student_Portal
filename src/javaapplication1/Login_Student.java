@@ -46,9 +46,9 @@ public class Login_Student extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Baloo Bhaijaan", 0, 28)); // NOI18N
         label1.setText("Chittagong University of Engineering & Technology");
         getContentPane().add(label1);
-        label1.setBounds(132, 44, 656, 47);
+        label1.setBounds(132, 44, 656, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nahinfarhan/Desktop/CUET_Vector_ogo.svg.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/CUET_Vector_ogo.svg.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 6, 122, 132);
@@ -74,14 +74,14 @@ public class Login_Student extends javax.swing.JFrame {
         jPanel2.add(jTextField1);
         jTextField1.setBounds(50, 60, 340, 30);
 
-        label2.setAlignment(1);
+        label2.setAlignment(java.awt.Label.CENTER);
         label2.setBackground(new java.awt.Color(242, 242, 242));
         label2.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
         label2.setText("Password");
         jPanel2.add(label2);
         label2.setBounds(50, 110, 80, 23);
 
-        label4.setAlignment(1);
+        label4.setAlignment(java.awt.Label.CENTER);
         label4.setBackground(new java.awt.Color(242, 242, 242));
         label4.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
         label4.setText("Username");
@@ -105,7 +105,7 @@ public class Login_Student extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(200, 60, 440, 250);
 
-        label3.setAlignment(1);
+        label3.setAlignment(java.awt.Label.CENTER);
         label3.setBackground(new java.awt.Color(148, 169, 216));
         label3.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
         label3.setText("STUDENT LOGIN");

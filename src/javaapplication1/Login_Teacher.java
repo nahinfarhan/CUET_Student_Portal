@@ -108,7 +108,7 @@ public class Login_Teacher extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 148, 800, 426);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nahinfarhan/Desktop/CUET_Vector_ogo.svg.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/CUET_Vector_ogo.svg.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 6, 122, 132);
