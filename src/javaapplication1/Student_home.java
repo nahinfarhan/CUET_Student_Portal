@@ -40,6 +40,7 @@ public class Student_home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(965, 619));
         setMinimumSize(new java.awt.Dimension(965, 619));
+        setPreferredSize(new java.awt.Dimension(965, 619));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
         jPanel1.setLayout(null);
@@ -55,7 +56,7 @@ public class Student_home extends javax.swing.JFrame {
             }
         });
         jPanel1.add(settings_button);
-        settings_button.setBounds(10, 410, 170, 40);
+        settings_button.setBounds(10, 380, 170, 40);
 
         Dashboard_button.setBackground(new java.awt.Color(148, 169, 216));
         Dashboard_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
@@ -126,11 +127,11 @@ public class Student_home extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(20, 20, 20)
                 .addComponent(CUET_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(CUET_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(41, 41, 41))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
