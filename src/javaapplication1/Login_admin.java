@@ -96,14 +96,14 @@ public class Login_admin extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(242, 242, 242));
         jButton1.setText("Sign In");
         jPanel2.add(jButton1);
-        jButton1.setBounds(50, 190, 74, 26);
+        jButton1.setBounds(50, 190, 75, 25);
 
         jButton2.setBackground(new java.awt.Color(242, 242, 242));
         jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(47, 110, 186));
         jButton2.setText("Forget Password");
         jPanel2.add(jButton2);
-        jButton2.setBounds(260, 190, 130, 24);
+        jButton2.setBounds(260, 190, 130, 23);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(180, 190, 440, 250);
