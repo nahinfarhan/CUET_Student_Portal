@@ -92,8 +92,11 @@ public class Login_Student extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(242, 242, 242));
         jButton1.setText("Sign In");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setOpaque(true);
         jPanel2.add(jButton1);
-        jButton1.setBounds(50, 190, 75, 25);
+        jButton1.setBounds(50, 190, 80, 25);
 
         jButton2.setBackground(new java.awt.Color(242, 242, 242));
         jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
