@@ -43,7 +43,7 @@ public class Login_admin extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 574));
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/CUET_Vector_ogo.svg.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 6, 122, 132);

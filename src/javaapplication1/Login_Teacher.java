@@ -32,13 +32,13 @@ public class Login_Teacher extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         teacher_pass_field = new javax.swing.JPasswordField();
         teacher_username_text = new javax.swing.JTextField();
-        label2 = new java.awt.Label();
-        label4 = new java.awt.Label();
+        password_label = new java.awt.Label();
+        username_label = new java.awt.Label();
         signin_teacher = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        label3 = new java.awt.Label();
-        jLabel1 = new javax.swing.JLabel();
-        label1 = new java.awt.Label();
+        forget_pass_button = new javax.swing.JButton();
+        login_label = new java.awt.Label();
+        uni_icon = new javax.swing.JLabel();
+        university_name_label = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -69,19 +69,19 @@ public class Login_Teacher extends javax.swing.JFrame {
         jPanel2.add(teacher_username_text);
         teacher_username_text.setBounds(50, 60, 340, 30);
 
-        label2.setAlignment(java.awt.Label.CENTER);
-        label2.setBackground(new java.awt.Color(242, 242, 242));
-        label2.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
-        label2.setText("Password");
-        jPanel2.add(label2);
-        label2.setBounds(50, 110, 80, 23);
+        password_label.setAlignment(java.awt.Label.CENTER);
+        password_label.setBackground(new java.awt.Color(242, 242, 242));
+        password_label.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
+        password_label.setText("Password");
+        jPanel2.add(password_label);
+        password_label.setBounds(50, 110, 80, 23);
 
-        label4.setAlignment(java.awt.Label.CENTER);
-        label4.setBackground(new java.awt.Color(242, 242, 242));
-        label4.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
-        label4.setText("Username");
-        jPanel2.add(label4);
-        label4.setBounds(50, 30, 80, 23);
+        username_label.setAlignment(java.awt.Label.CENTER);
+        username_label.setBackground(new java.awt.Color(242, 242, 242));
+        username_label.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
+        username_label.setText("Username");
+        jPanel2.add(username_label);
+        username_label.setBounds(50, 30, 80, 23);
 
         signin_teacher.setBackground(new java.awt.Color(47, 110, 186));
         signin_teacher.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
@@ -95,35 +95,35 @@ public class Login_Teacher extends javax.swing.JFrame {
         jPanel2.add(signin_teacher);
         signin_teacher.setBounds(50, 190, 75, 25);
 
-        jButton2.setBackground(new java.awt.Color(242, 242, 242));
-        jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(47, 110, 186));
-        jButton2.setText("Forget Password");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(260, 190, 130, 23);
+        forget_pass_button.setBackground(new java.awt.Color(242, 242, 242));
+        forget_pass_button.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
+        forget_pass_button.setForeground(new java.awt.Color(47, 110, 186));
+        forget_pass_button.setText("Forget Password");
+        jPanel2.add(forget_pass_button);
+        forget_pass_button.setBounds(260, 190, 130, 23);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(200, 80, 440, 250);
 
-        label3.setAlignment(java.awt.Label.CENTER);
-        label3.setBackground(new java.awt.Color(148, 169, 216));
-        label3.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        label3.setText("TEACHER LOGIN");
-        jPanel1.add(label3);
-        label3.setBounds(330, 30, 150, 30);
+        login_label.setAlignment(java.awt.Label.CENTER);
+        login_label.setBackground(new java.awt.Color(148, 169, 216));
+        login_label.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        login_label.setText("TEACHER LOGIN");
+        jPanel1.add(login_label);
+        login_label.setBounds(330, 30, 150, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 148, 800, 426);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 6, 122, 132);
+        uni_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
+        uni_icon.setText("jLabel1");
+        getContentPane().add(uni_icon);
+        uni_icon.setBounds(0, 6, 122, 132);
 
-        label1.setFont(new java.awt.Font("Baloo Bhaijaan", 0, 28)); // NOI18N
-        label1.setText("Chittagong University of Engineering & Technology");
-        getContentPane().add(label1);
-        label1.setBounds(132, 44, 656, 47);
+        university_name_label.setFont(new java.awt.Font("Baloo Bhaijaan", 0, 28)); // NOI18N
+        university_name_label.setText("Chittagong University of Engineering & Technology");
+        getContentPane().add(university_name_label);
+        university_name_label.setBounds(132, 44, 656, 47);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,16 +190,16 @@ public class Login_Teacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton forget_pass_button;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
+    private java.awt.Label login_label;
+    private java.awt.Label password_label;
     private javax.swing.JButton signin_teacher;
     private javax.swing.JPasswordField teacher_pass_field;
     private javax.swing.JTextField teacher_username_text;
+    private javax.swing.JLabel uni_icon;
+    private java.awt.Label university_name_label;
+    private java.awt.Label username_label;
     // End of variables declaration//GEN-END:variables
 }
