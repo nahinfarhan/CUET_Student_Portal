@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package javaapplication1;
 
-/**
- *
- * @author nahinfarhan
- */
+import javax.swing.JOptionPane;
+
 public class Login_Student extends javax.swing.JFrame {
 
     /**
@@ -30,11 +24,11 @@ public class Login_Student extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        student_pass_field = new javax.swing.JPasswordField();
+        student_username_text = new javax.swing.JTextField();
         label2 = new java.awt.Label();
         label4 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
+        signin_student = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         label3 = new java.awt.Label();
 
@@ -60,19 +54,19 @@ public class Login_Student extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(null);
 
-        jPasswordField1.setBackground(new java.awt.Color(223, 227, 237));
-        jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(50, 140, 340, 30);
+        student_pass_field.setBackground(new java.awt.Color(223, 227, 237));
+        jPanel2.add(student_pass_field);
+        student_pass_field.setBounds(50, 140, 340, 30);
 
-        jTextField1.setBackground(new java.awt.Color(223, 227, 237));
-        jTextField1.setToolTipText("Username");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        student_username_text.setBackground(new java.awt.Color(223, 227, 237));
+        student_username_text.setToolTipText("Username");
+        student_username_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                student_username_textActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(50, 60, 340, 30);
+        jPanel2.add(student_username_text);
+        student_username_text.setBounds(50, 60, 340, 30);
 
         label2.setAlignment(java.awt.Label.CENTER);
         label2.setBackground(new java.awt.Color(242, 242, 242));
@@ -88,15 +82,20 @@ public class Login_Student extends javax.swing.JFrame {
         jPanel2.add(label4);
         label4.setBounds(50, 30, 80, 23);
 
-        jButton1.setBackground(new java.awt.Color(47, 110, 186));
-        jButton1.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(242, 242, 242));
-        jButton1.setText("Sign In");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setOpaque(true);
-        jPanel2.add(jButton1);
-        jButton1.setBounds(50, 190, 80, 25);
+        signin_student.setBackground(new java.awt.Color(47, 110, 186));
+        signin_student.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
+        signin_student.setForeground(new java.awt.Color(242, 242, 242));
+        signin_student.setText("Sign In");
+        signin_student.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signin_student.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        signin_student.setOpaque(true);
+        signin_student.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signin_studentActionPerformed(evt);
+            }
+        });
+        jPanel2.add(signin_student);
+        signin_student.setBounds(50, 190, 80, 25);
 
         jButton2.setBackground(new java.awt.Color(242, 242, 242));
         jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
@@ -121,9 +120,28 @@ public class Login_Student extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void student_username_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_username_textActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_student_username_textActionPerformed
+
+    private void signin_studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signin_studentActionPerformed
+    // Get the entered username and password
+    String enteredUsername = student_username_text.getText();
+    String enteredPassword = new String(student_pass_field.getPassword());
+
+    // Check if the username and password are "admin"
+    if (enteredUsername.equals("admin") && enteredPassword.equals("admin")) {
+        // If the login is successful, create and display the Dashboard_student JFrame
+        Dashboard_student dashboardStudent = new Dashboard_student();
+        dashboardStudent.setVisible(true);
+
+        // Close the current Login_Student JFrame
+        dispose();
+    } else {
+        // If the login fails, show an error message
+        JOptionPane.showMessageDialog(this, "Invalid username or password. Try again.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_signin_studentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,36 +159,30 @@ public class Login_Student extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login_Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login_Student().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login_Student().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
+    private javax.swing.JButton signin_student;
+    private javax.swing.JPasswordField student_pass_field;
+    private javax.swing.JTextField student_username_text;
     // End of variables declaration//GEN-END:variables
 }

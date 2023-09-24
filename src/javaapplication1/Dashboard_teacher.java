@@ -8,12 +8,12 @@ package javaapplication1;
  *
  * @author nahinfarhan
  */
-public class Student_home extends javax.swing.JFrame {
+public class Dashboard_teacher extends javax.swing.JFrame {
 
     /**
-     * Creates new form Student_home
+     * Creates new form Dashboard_teacher
      */
-    public Student_home() {
+    public Dashboard_teacher() {
         initComponents();
     }
 
@@ -26,6 +26,9 @@ public class Student_home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        CUET_logo = new javax.swing.JLabel();
+        CUET_name = new java.awt.Label();
         jPanel1 = new javax.swing.JPanel();
         settings_button = new javax.swing.JButton();
         Dashboard_button = new javax.swing.JButton();
@@ -33,88 +36,10 @@ public class Student_home extends javax.swing.JFrame {
         accout_button = new javax.swing.JButton();
         logout_button = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        CUET_logo = new javax.swing.JLabel();
-        CUET_name = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(965, 619));
         setMinimumSize(new java.awt.Dimension(965, 619));
-        setPreferredSize(new java.awt.Dimension(965, 619));
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
-        jPanel1.setLayout(null);
-
-        settings_button.setBackground(new java.awt.Color(215, 215, 215));
-        settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/setting_icon.png"))); // NOI18N
-        settings_button.setText("Settings");
-        settings_button.setIconTextGap(10);
-        settings_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settings_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(settings_button);
-        settings_button.setBounds(10, 380, 170, 40);
-
-        Dashboard_button.setBackground(new java.awt.Color(148, 169, 216));
-        Dashboard_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        Dashboard_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/dashboars_icon.png"))); // NOI18N
-        Dashboard_button.setText("Dashboard");
-        Dashboard_button.setIconTextGap(10);
-        Dashboard_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Dashboard_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Dashboard_button);
-        Dashboard_button.setBounds(10, 30, 170, 40);
-
-        courses_button.setBackground(new java.awt.Color(148, 169, 216));
-        courses_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        courses_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/course_icon.png"))); // NOI18N
-        courses_button.setText("Courses");
-        courses_button.setIconTextGap(10);
-        courses_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                courses_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(courses_button);
-        courses_button.setBounds(10, 90, 170, 40);
-
-        accout_button.setBackground(new java.awt.Color(148, 169, 216));
-        accout_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        accout_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/account_icon.png"))); // NOI18N
-        accout_button.setText("Account");
-        accout_button.setBorder(null);
-        accout_button.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        accout_button.setIconTextGap(10);
-        accout_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accout_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(accout_button);
-        accout_button.setBounds(10, 150, 170, 40);
-
-        logout_button.setBackground(new java.awt.Color(148, 169, 216));
-        logout_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        logout_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/logout_icon.png"))); // NOI18N
-        logout_button.setText("Logout");
-        logout_button.setIconTextGap(10);
-        logout_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logout_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(logout_button);
-        logout_button.setBounds(10, 210, 170, 40);
-
-        jPanel2.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(200, 30, 730, 420);
 
         CUET_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
         CUET_logo.setText("jLabel1");
@@ -143,6 +68,75 @@ public class Student_home extends javax.swing.JFrame {
                     .addComponent(CUET_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
+        jPanel1.setLayout(null);
+
+        settings_button.setBackground(new java.awt.Color(215, 215, 215));
+        settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        settings_button.setText("Settings");
+        settings_button.setIconTextGap(10);
+        settings_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settings_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(settings_button);
+        settings_button.setBounds(10, 380, 170, 40);
+
+        Dashboard_button.setBackground(new java.awt.Color(148, 169, 216));
+        Dashboard_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        Dashboard_button.setText("Dashboard");
+        Dashboard_button.setIconTextGap(10);
+        Dashboard_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Dashboard_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Dashboard_button);
+        Dashboard_button.setBounds(10, 30, 170, 40);
+
+        courses_button.setBackground(new java.awt.Color(148, 169, 216));
+        courses_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        courses_button.setText("Courses");
+        courses_button.setIconTextGap(10);
+        courses_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                courses_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(courses_button);
+        courses_button.setBounds(10, 90, 170, 40);
+
+        accout_button.setBackground(new java.awt.Color(148, 169, 216));
+        accout_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        accout_button.setText("Account");
+        accout_button.setBorder(null);
+        accout_button.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        accout_button.setIconTextGap(10);
+        accout_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accout_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(accout_button);
+        accout_button.setBounds(10, 150, 170, 40);
+
+        logout_button.setBackground(new java.awt.Color(148, 169, 216));
+        logout_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        logout_button.setText("Logout");
+        logout_button.setIconTextGap(10);
+        logout_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logout_button);
+        logout_button.setBounds(10, 210, 170, 40);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(200, 30, 730, 420);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,20 +200,20 @@ public class Student_home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Student_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboard_teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Student_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboard_teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Student_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboard_teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Student_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboard_teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Student_home().setVisible(true);
+                new Dashboard_teacher().setVisible(true);
             }
         });
     }

@@ -4,6 +4,8 @@
  */
 package javaapplication1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nahinfarhan
@@ -28,11 +30,11 @@ public class Login_Teacher extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        teacher_pass_field = new javax.swing.JPasswordField();
+        teacher_username_text = new javax.swing.JTextField();
         label2 = new java.awt.Label();
         label4 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
+        signin_teacher = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         label3 = new java.awt.Label();
         jLabel1 = new javax.swing.JLabel();
@@ -53,40 +55,45 @@ public class Login_Teacher extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(null);
 
-        jPasswordField1.setBackground(new java.awt.Color(223, 227, 237));
-        jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(50, 140, 340, 30);
+        teacher_pass_field.setBackground(new java.awt.Color(223, 227, 237));
+        jPanel2.add(teacher_pass_field);
+        teacher_pass_field.setBounds(50, 140, 340, 30);
 
-        jTextField1.setBackground(new java.awt.Color(223, 227, 237));
-        jTextField1.setToolTipText("Username");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        teacher_username_text.setBackground(new java.awt.Color(223, 227, 237));
+        teacher_username_text.setToolTipText("Username");
+        teacher_username_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                teacher_username_textActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(50, 60, 340, 30);
+        jPanel2.add(teacher_username_text);
+        teacher_username_text.setBounds(50, 60, 340, 30);
 
-        label2.setAlignment(1);
+        label2.setAlignment(java.awt.Label.CENTER);
         label2.setBackground(new java.awt.Color(242, 242, 242));
         label2.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
         label2.setText("Password");
         jPanel2.add(label2);
         label2.setBounds(50, 110, 80, 23);
 
-        label4.setAlignment(1);
+        label4.setAlignment(java.awt.Label.CENTER);
         label4.setBackground(new java.awt.Color(242, 242, 242));
         label4.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
         label4.setText("Username");
         jPanel2.add(label4);
         label4.setBounds(50, 30, 80, 23);
 
-        jButton1.setBackground(new java.awt.Color(47, 110, 186));
-        jButton1.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(242, 242, 242));
-        jButton1.setText("Sign In");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(50, 190, 75, 25);
+        signin_teacher.setBackground(new java.awt.Color(47, 110, 186));
+        signin_teacher.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
+        signin_teacher.setForeground(new java.awt.Color(242, 242, 242));
+        signin_teacher.setText("Sign In");
+        signin_teacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signin_teacherActionPerformed(evt);
+            }
+        });
+        jPanel2.add(signin_teacher);
+        signin_teacher.setBounds(50, 190, 75, 25);
 
         jButton2.setBackground(new java.awt.Color(242, 242, 242));
         jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
@@ -98,7 +105,7 @@ public class Login_Teacher extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(200, 80, 440, 250);
 
-        label3.setAlignment(1);
+        label3.setAlignment(java.awt.Label.CENTER);
         label3.setBackground(new java.awt.Color(148, 169, 216));
         label3.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
         label3.setText("TEACHER LOGIN");
@@ -108,7 +115,7 @@ public class Login_Teacher extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 148, 800, 426);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/CUET_Vector_ogo.svg.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 6, 122, 132);
@@ -121,9 +128,31 @@ public class Login_Teacher extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void teacher_username_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_username_textActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_teacher_username_textActionPerformed
+
+    private void signin_teacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signin_teacherActionPerformed
+        // Get the entered username and password
+        String enteredUsername = teacher_username_text.getText();
+        String enteredPassword = new String(teacher_pass_field.getPassword());
+
+        // Check if the username and password are "admin"
+        if (enteredUsername.equals("admin") && enteredPassword.equals("admin")) {
+            // If the login is successful, show a message
+            JOptionPane.showMessageDialog(this, "Login Successful!");
+
+            // If the login is successful, create and display the Dashboard_student JFrame
+            Dashboard_teacher dashboardTeacher = new Dashboard_teacher();
+            dashboardTeacher.setVisible(true);
+
+            // Close the current Login_Student JFrame
+            dispose();
+        } else {
+            // If the login fails, show an error message
+            JOptionPane.showMessageDialog(this, "Invalid username or password. Try again.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_signin_teacherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,16 +190,16 @@ public class Login_Teacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
+    private javax.swing.JButton signin_teacher;
+    private javax.swing.JPasswordField teacher_pass_field;
+    private javax.swing.JTextField teacher_username_text;
     // End of variables declaration//GEN-END:variables
 }
