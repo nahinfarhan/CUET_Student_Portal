@@ -125,6 +125,7 @@ public class Dashboard_teacher extends javax.swing.JFrame {
         jPanel1.add(logout_button);
         logout_button.setBounds(10, 210, 170, 40);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
         jPanel2.setLayout(new java.awt.BorderLayout());
         jPanel1.add(jPanel2);
         jPanel2.setBounds(200, 30, 1030, 650);
