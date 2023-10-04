@@ -132,6 +132,7 @@ public class Login_Student extends javax.swing.JFrame {
     // Check if the username and password are "admin"
     if (enteredUsername.equals("admin") && enteredPassword.equals("admin")) {
         // If the login is successful, create and display the Dashboard_student JFrame
+        JOptionPane.showMessageDialog(this, "Login Successful!");
         Dashboard_student dashboardStudent = new Dashboard_student();
         dashboardStudent.setVisible(true);
 

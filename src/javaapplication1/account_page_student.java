@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
-import java.io.File
-import javax.swing.JFileChooser
+import java.io.File;
+import javax.swing.JFileChooser;
         
 import javax.swing.JFrame;
 public class account_page_student extends javax.swing.JFrame {

@@ -8,7 +8,7 @@ package javaapplication1;
  *
  * @author nahinfarhan
  */
-public class CUET_Portal_main {
+public class JavaApplication1 {
 
     /**
      * @param args the command line arguments
