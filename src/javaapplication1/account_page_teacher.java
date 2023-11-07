@@ -55,7 +55,6 @@ public class account_page_teacher extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1260, 850));
         setMinimumSize(new java.awt.Dimension(1260, 850));
-        setPreferredSize(new java.awt.Dimension(1260, 850));
         setResizable(false);
 
         CUET_logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
@@ -405,13 +404,7 @@ public class account_page_teacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CUET_logo;
-    private javax.swing.JLabel CUET_logo1;
-    private javax.swing.JLabel CUET_logo2;
     private javax.swing.JLabel CUET_logo3;
-    private java.awt.Label CUET_name;
-    private java.awt.Label CUET_name1;
-    private java.awt.Label CUET_name2;
     private java.awt.Label CUET_name3;
     private javax.swing.JLabel Contact_number6;
     private javax.swing.JButton Dashboard_button;
@@ -425,9 +418,6 @@ public class account_page_teacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;

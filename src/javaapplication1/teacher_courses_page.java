@@ -37,6 +37,9 @@ public class teacher_courses_page extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane3 = new javax.swing.JTabbedPane();
+        Leve1Term1_button = new javax.swing.JButton();
+        Leve2Term1_button = new javax.swing.JButton();
+        Leve3Term1_button1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         CUET_logo = new javax.swing.JLabel();
         CUET_name = new java.awt.Label();
@@ -118,14 +121,52 @@ public class teacher_courses_page extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
 
+        Leve1Term1_button.setBackground(new java.awt.Color(219, 217, 228));
+        Leve1Term1_button.setFont(new java.awt.Font("Chakra Petch", 1, 16)); // NOI18N
+        Leve1Term1_button.setText("Course-1 ");
+        Leve1Term1_button.setBorder(null);
+        Leve1Term1_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Leve1Term1_buttonActionPerformed(evt);
+            }
+        });
+
+        Leve2Term1_button.setBackground(new java.awt.Color(240, 203, 184));
+        Leve2Term1_button.setFont(new java.awt.Font("Chakra Petch", 1, 16)); // NOI18N
+        Leve2Term1_button.setText("Course-2");
+        Leve2Term1_button.setBorder(null);
+        Leve2Term1_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Leve2Term1_buttonActionPerformed(evt);
+            }
+        });
+
+        Leve3Term1_button1.setBackground(new java.awt.Color(182, 196, 237));
+        Leve3Term1_button1.setFont(new java.awt.Font("Chakra Petch", 1, 16)); // NOI18N
+        Leve3Term1_button1.setText("Course-3");
+        Leve3Term1_button1.setBorder(null);
+        Leve3Term1_button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Leve3Term1_button1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(370, 370, 370)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Leve1Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Leve2Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Leve3Term1_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -134,7 +175,13 @@ public class teacher_courses_page extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(641, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(Leve1Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(Leve2Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(Leve3Term1_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(382, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4);
@@ -225,6 +272,20 @@ public class teacher_courses_page extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
 
+    private void Leve1Term1_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve1Term1_buttonActionPerformed
+        JFrame studentTermsFrame = new Students_terms_nextpage();
+        studentTermsFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Leve1Term1_buttonActionPerformed
+
+    private void Leve2Term1_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve2Term1_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Leve2Term1_buttonActionPerformed
+
+    private void Leve3Term1_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve3Term1_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Leve3Term1_button1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +325,9 @@ public class teacher_courses_page extends javax.swing.JFrame {
     private javax.swing.JLabel CUET_logo;
     private java.awt.Label CUET_name;
     private javax.swing.JButton Dashboard_button;
+    private javax.swing.JButton Leve1Term1_button;
+    private javax.swing.JButton Leve2Term1_button;
+    private javax.swing.JButton Leve3Term1_button1;
     private javax.swing.JButton accout_button;
     private javax.swing.JButton courses_button;
     private javax.swing.JPanel jPanel1;

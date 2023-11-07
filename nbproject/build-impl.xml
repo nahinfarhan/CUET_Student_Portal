@@ -899,7 +899,7 @@ is divided into following sections:
             <attribute default="jvm" name="jvm"/>
             <element name="customize" optional="true"/>
             <sequential>
-                <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true" module="@{modulename}">
+               <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true" module="@{modulename}">
                     <classpath>
                         <path path="@{classpath}"/>
                     </classpath>
@@ -1327,7 +1327,7 @@ is divided into following sections:
                 =================
             -->
     <target depends="init,compile" description="Run a main class." name="run">
-        <j2seproject1:java>
+     <j2seproject1:java>
             <customize>
                 <arg line="${application.args}"/>
             </customize>

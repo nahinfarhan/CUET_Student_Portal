@@ -1,24 +1,22 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package javaapplication1;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
 import javax.swing.JFrame;
 
-public class Dashboard_student extends javax.swing.JFrame {
-    Connection conn = null;
-    ResultSet rs = null;
-    public Dashboard_student() {
+/**
+ *
+ * @author nahinfarhan
+ */
+public class Courses_admin extends javax.swing.JFrame {
+
+    /**
+     * Creates new form Courses_admin
+     */
+    public Courses_admin() {
         initComponents();
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CUET_Students_Project?zeroDateTimeBehavior=CONVERT_TO_NULL","root",""); 
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
     }
 
     /**
@@ -32,9 +30,9 @@ public class Dashboard_student extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         settings_button = new javax.swing.JButton();
-        Dashboard_button = new javax.swing.JButton();
-        terms_button = new javax.swing.JButton();
-        accout_button = new javax.swing.JButton();
+        Students_button_admin = new javax.swing.JButton();
+        Teachers_button_admin = new javax.swing.JButton();
+        courses_button_admin = new javax.swing.JButton();
         logout_button = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -69,7 +67,6 @@ public class Dashboard_student extends javax.swing.JFrame {
 
         settings_button.setBackground(new java.awt.Color(215, 215, 215));
         settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/setting_icon.png"))); // NOI18N
         settings_button.setText("Settings");
         settings_button.setIconTextGap(10);
         settings_button.addActionListener(new java.awt.event.ActionListener() {
@@ -80,50 +77,47 @@ public class Dashboard_student extends javax.swing.JFrame {
         jPanel1.add(settings_button);
         settings_button.setBounds(10, 640, 170, 40);
 
-        Dashboard_button.setBackground(new java.awt.Color(148, 169, 216));
-        Dashboard_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        Dashboard_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/dashboars_icon.png"))); // NOI18N
-        Dashboard_button.setText("Dashboard");
-        Dashboard_button.setIconTextGap(10);
-        Dashboard_button.addActionListener(new java.awt.event.ActionListener() {
+        Students_button_admin.setBackground(new java.awt.Color(148, 169, 216));
+        Students_button_admin.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        Students_button_admin.setText("Students");
+        Students_button_admin.setIconTextGap(10);
+        Students_button_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Dashboard_buttonActionPerformed(evt);
+                Students_button_adminActionPerformed(evt);
             }
         });
-        jPanel1.add(Dashboard_button);
-        Dashboard_button.setBounds(10, 30, 170, 40);
+        jPanel1.add(Students_button_admin);
+        Students_button_admin.setBounds(10, 30, 170, 40);
 
-        terms_button.setBackground(new java.awt.Color(148, 169, 216));
-        terms_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        terms_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/course_icon.png"))); // NOI18N
-        terms_button.setText("Terms");
-        terms_button.setIconTextGap(10);
-        terms_button.addActionListener(new java.awt.event.ActionListener() {
+        Teachers_button_admin.setBackground(new java.awt.Color(148, 169, 216));
+        Teachers_button_admin.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        Teachers_button_admin.setText("Teachers");
+        Teachers_button_admin.setToolTipText("");
+        Teachers_button_admin.setIconTextGap(10);
+        Teachers_button_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terms_buttonActionPerformed(evt);
+                Teachers_button_adminActionPerformed(evt);
             }
         });
-        jPanel1.add(terms_button);
-        terms_button.setBounds(10, 90, 170, 40);
+        jPanel1.add(Teachers_button_admin);
+        Teachers_button_admin.setBounds(10, 90, 170, 40);
 
-        accout_button.setBackground(new java.awt.Color(148, 169, 216));
-        accout_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        accout_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/account_icon.png"))); // NOI18N
-        accout_button.setText("Account");
-        accout_button.setBorder(null);
-        accout_button.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        accout_button.setIconTextGap(10);
-        accout_button.addActionListener(new java.awt.event.ActionListener() {
+        courses_button_admin.setBackground(new java.awt.Color(148, 169, 216));
+        courses_button_admin.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        courses_button_admin.setText("Courses");
+        courses_button_admin.setBorder(null);
+        courses_button_admin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        courses_button_admin.setIconTextGap(10);
+        courses_button_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accout_buttonActionPerformed(evt);
+                courses_button_adminActionPerformed(evt);
             }
         });
-        jPanel1.add(accout_button);
-        accout_button.setBounds(10, 150, 170, 40);
+        jPanel1.add(courses_button_admin);
+        courses_button_admin.setBounds(10, 150, 170, 40);
 
         logout_button.setBackground(new java.awt.Color(148, 169, 216));
         logout_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        logout_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/logout_icon.png"))); // NOI18N
         logout_button.setText("Logout");
         logout_button.setIconTextGap(10);
         logout_button.addActionListener(new java.awt.event.ActionListener() {
@@ -360,33 +354,34 @@ public class Dashboard_student extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_settings_buttonActionPerformed
 
-    private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
-        JFrame studentDashboardFrame = new Dashboard_student();
+    private void Students_button_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Students_button_adminActionPerformed
+        JFrame studentDashboardFrame = new students_admin();
         studentDashboardFrame.setVisible(true);
-
-        // Close the current dashboard window
         dispose();
-    }//GEN-LAST:event_Dashboard_buttonActionPerformed
+    }//GEN-LAST:event_Students_button_adminActionPerformed
 
-    private void terms_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terms_buttonActionPerformed
-        JFrame studentTermsFrame = new Student_terms();
+    private void Teachers_button_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Teachers_button_adminActionPerformed
+        JFrame studentTermsFrame;
+        studentTermsFrame = new teachers_admin();
         studentTermsFrame.setVisible(true);
         dispose();
-    }//GEN-LAST:event_terms_buttonActionPerformed
+    }//GEN-LAST:event_Teachers_button_adminActionPerformed
 
-    private void accout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accout_buttonActionPerformed
-        JFrame studentAccountFrame = new account_page_student();
+    private void courses_button_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courses_button_adminActionPerformed
+        JFrame studentAccountFrame = new Courses_admin();
         studentAccountFrame.setVisible(true);
         dispose();
-    }//GEN-LAST:event_accout_buttonActionPerformed
+    }//GEN-LAST:event_courses_button_adminActionPerformed
 
     private void logout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_buttonActionPerformed
-        JFrame studentLoginFrame = new Login_Student();
+        JFrame studentLoginFrame = new Login_admin();
         studentLoginFrame.setVisible(true);
-
-        // Close the current dashboard window
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
+
+    private void student_id_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_id_showActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_student_id_showActionPerformed
 
     private void student_name_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_name_showActionPerformed
         // TODO add your handling code here:
@@ -403,10 +398,6 @@ public class Dashboard_student extends javax.swing.JFrame {
     private void student_contactnumber_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_contactnumber_showActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_student_contactnumber_showActionPerformed
-
-    private void student_id_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_id_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_id_showActionPerformed
 
     private void student_hall_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_hall_showActionPerformed
         // TODO add your handling code here:
@@ -433,20 +424,20 @@ public class Dashboard_student extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard_student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Courses_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard_student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Courses_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard_student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Courses_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard_student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Courses_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard_student().setVisible(true);
+                new Courses_admin().setVisible(true);
             }
         });
     }
@@ -457,8 +448,9 @@ public class Dashboard_student extends javax.swing.JFrame {
     private java.awt.Label CUET_name;
     private javax.swing.JLabel Contact_number;
     private javax.swing.JLabel Contact_number1;
-    private javax.swing.JButton Dashboard_button;
-    private javax.swing.JButton accout_button;
+    private javax.swing.JButton Students_button_admin;
+    private javax.swing.JButton Teachers_button_admin;
+    private javax.swing.JButton courses_button_admin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -479,6 +471,5 @@ public class Dashboard_student extends javax.swing.JFrame {
     private javax.swing.JTextField student_hall_show;
     private javax.swing.JTextField student_id_show;
     private javax.swing.JTextField student_name_show;
-    private javax.swing.JButton terms_button;
     // End of variables declaration//GEN-END:variables
 }
