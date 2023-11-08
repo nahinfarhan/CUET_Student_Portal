@@ -34,25 +34,14 @@ public class students_admin extends javax.swing.JFrame {
         Teachers_button_admin = new javax.swing.JButton();
         courses_button_admin = new javax.swing.JButton();
         logout_button = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        Contact_number = new javax.swing.JLabel();
-        Contact_number1 = new javax.swing.JLabel();
-        Advisor_name = new javax.swing.JLabel();
-        student_id_show = new javax.swing.JTextField();
-        student_name_show = new javax.swing.JTextField();
-        student_dept_show = new javax.swing.JTextField();
-        student_email_show = new javax.swing.JTextField();
-        student_contactnumber_show = new javax.swing.JTextField();
-        student_hall_show = new javax.swing.JTextField();
-        student_advisor_show = new javax.swing.JTextField();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jTabbedPane4 = new javax.swing.JTabbedPane();
+        jPanel10 = new javax.swing.JPanel();
+        jTabbedPane13 = new javax.swing.JTabbedPane();
+        jTabbedPane14 = new javax.swing.JTabbedPane();
+        new_student_button = new javax.swing.JButton();
+        modify_student_button = new javax.swing.JButton();
+        student_search_button = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         CUET_logo = new javax.swing.JLabel();
         CUET_name = new java.awt.Label();
@@ -126,175 +115,54 @@ public class students_admin extends javax.swing.JFrame {
         });
         jPanel1.add(logout_button);
         logout_button.setBounds(10, 210, 170, 40);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
-
-        jLabel1.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel1.setText("Student ID");
-
-        jLabel2.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel2.setText("Student Name");
-
-        jLabel3.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel3.setText("Department");
-
-        jLabel4.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel4.setText("E-mail");
-
-        Contact_number.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Contact_number.setText("Contact Number");
-
-        Contact_number1.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Contact_number1.setText("Hall");
-
-        Advisor_name.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Advisor_name.setText("Advisor");
-
-        student_id_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_id_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_id_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_id_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_id_showActionPerformed(evt);
-            }
-        });
-
-        student_name_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_name_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_name_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_name_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_name_showActionPerformed(evt);
-            }
-        });
-
-        student_dept_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_dept_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_dept_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_dept_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_dept_showActionPerformed(evt);
-            }
-        });
-
-        student_email_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_email_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_email_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_email_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_email_showActionPerformed(evt);
-            }
-        });
-
-        student_contactnumber_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_contactnumber_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_contactnumber_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_contactnumber_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_contactnumber_showActionPerformed(evt);
-            }
-        });
-
-        student_hall_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_hall_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_hall_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_hall_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_hall_showActionPerformed(evt);
-            }
-        });
-
-        student_advisor_show.setBackground(new java.awt.Color(242, 242, 242));
-        student_advisor_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_advisor_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_advisor_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_advisor_showActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(student_email_show)
-                                    .addComponent(student_name_show)
-                                    .addComponent(student_dept_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Contact_number))
-                                    .addComponent(Contact_number1)
-                                    .addComponent(Advisor_name))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(student_advisor_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(student_hall_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(student_contactnumber_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(student_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(student_name_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_dept_show, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(student_email_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contact_number, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_contactnumber_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contact_number1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_hall_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Advisor_name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_advisor_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(296, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(190, 30, 1040, 630);
         jPanel1.add(jTabbedPane2);
         jTabbedPane2.setBounds(180, -30, 0, 1);
         jPanel1.add(jTabbedPane4);
         jTabbedPane4.setBounds(170, -20, 0, 1);
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel10.add(jTabbedPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 0, 1030, -1));
+        jPanel10.add(jTabbedPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        new_student_button.setBackground(new java.awt.Color(57, 110, 186));
+        new_student_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        new_student_button.setForeground(new java.awt.Color(255, 255, 255));
+        new_student_button.setText("New Student Add");
+        new_student_button.setBorder(null);
+        new_student_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_student_buttonActionPerformed(evt);
+            }
+        });
+        jPanel10.add(new_student_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 304, 38));
+
+        modify_student_button.setBackground(new java.awt.Color(57, 110, 186));
+        modify_student_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        modify_student_button.setForeground(new java.awt.Color(255, 255, 255));
+        modify_student_button.setText("Modify Student");
+        modify_student_button.setBorder(null);
+        modify_student_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modify_student_buttonActionPerformed(evt);
+            }
+        });
+        jPanel10.add(modify_student_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 304, 38));
+
+        student_search_button.setBackground(new java.awt.Color(57, 110, 186));
+        student_search_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        student_search_button.setForeground(new java.awt.Color(255, 255, 255));
+        student_search_button.setText("Search Student");
+        student_search_button.setBorder(null);
+        student_search_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                student_search_buttonActionPerformed(evt);
+            }
+        });
+        jPanel10.add(student_search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 304, 38));
+
+        jPanel1.add(jPanel10);
+        jPanel10.setBounds(190, 30, 1040, 630);
 
         CUET_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
         CUET_logo.setText("jLabel1");
@@ -378,33 +246,23 @@ public class students_admin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
 
-    private void student_id_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_id_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_id_showActionPerformed
+    private void new_student_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_student_buttonActionPerformed
+        JFrame studentAccountFrame = new new_students_admin();
+        studentAccountFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_new_student_buttonActionPerformed
 
-    private void student_name_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_name_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_name_showActionPerformed
+    private void modify_student_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_student_buttonActionPerformed
+        JFrame studentAccountFrame = new modify_students_admin();
+        studentAccountFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_modify_student_buttonActionPerformed
 
-    private void student_dept_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_dept_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_dept_showActionPerformed
-
-    private void student_email_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_email_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_email_showActionPerformed
-
-    private void student_contactnumber_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_contactnumber_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_contactnumber_showActionPerformed
-
-    private void student_hall_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_hall_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_hall_showActionPerformed
-
-    private void student_advisor_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_advisor_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_student_advisor_showActionPerformed
+    private void student_search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_search_buttonActionPerformed
+        JFrame studentAccountFrame = new search_students_admin();
+        studentAccountFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_student_search_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -443,33 +301,22 @@ public class students_admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Advisor_name;
     private javax.swing.JLabel CUET_logo;
     private java.awt.Label CUET_name;
-    private javax.swing.JLabel Contact_number;
-    private javax.swing.JLabel Contact_number1;
     private javax.swing.JButton Students_button_admin;
     private javax.swing.JButton Teachers_button_admin;
     private javax.swing.JButton courses_button_admin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane13;
+    private javax.swing.JTabbedPane jTabbedPane14;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton logout_button;
+    private javax.swing.JButton modify_student_button;
+    private javax.swing.JButton new_student_button;
     private javax.swing.JButton settings_button;
-    private javax.swing.JTextField student_advisor_show;
-    private javax.swing.JTextField student_contactnumber_show;
-    private javax.swing.JTextField student_dept_show;
-    private javax.swing.JTextField student_email_show;
-    private javax.swing.JTextField student_hall_show;
-    private javax.swing.JTextField student_id_show;
-    private javax.swing.JTextField student_name_show;
+    private javax.swing.JButton student_search_button;
     // End of variables declaration//GEN-END:variables
 }

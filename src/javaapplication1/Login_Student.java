@@ -148,6 +148,7 @@ public class Login_Student extends javax.swing.JFrame {
             // Successful login
             JOptionPane.showMessageDialog(this, "Login Successful!");
             Dashboard_student dashboardStudent = new Dashboard_student();
+            dashboardStudent.setUsername(enteredUsername); 
             dashboardStudent.setVisible(true);
 
             // Close the current Login_Student JFrame
