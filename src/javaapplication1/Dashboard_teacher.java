@@ -1,12 +1,75 @@
 
 package javaapplication1;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
 import javax.swing.JFrame;
+import java.sql.PreparedStatement;
+
 
 public class Dashboard_teacher extends javax.swing.JFrame {
+    Connection conn = null;
+    ResultSet rs = null;
+    private String username;
+    public void setUsername(String username) {
+    this.username = username;
+    teacher_id_show.setText(username);
+    teacher_id_show.setEditable(false);
+    setTeacherInfoFromDatabaseAndFullName();
+}
     public Dashboard_teacher() {
         initComponents();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CUET_Students_Project?zeroDateTimeBehavior=CONVERT_TO_NULL","root",""); 
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
     }
+    public void setTeacherInfoFromDatabaseAndFullName() {
+    try {
+        String query = "SELECT Teacher_name, Contact_Number, Email, dpt_name FROM Teacher WHERE Teacher_ID = ?";
+        PreparedStatement pst = conn.prepareStatement(query);
+        
+        // Set the Student_ID parameter to retrieve the information for a specific student (you can change this to match your use case)
+        pst.setString(1, username); // Assuming 'username' is the student ID
+        
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) { 
+            String contactNumber = rs.getString("Contact_Number");
+            String email = rs.getString("Email");
+            String departmentName = rs.getString("dpt_name");
+            String Name = rs.getString("Teacher_name");
+            
+            
+            // Set the retrieved information in their respective JTextFields
+            
+            contactnumber_show.setText(contactNumber);
+            email_show.setText(email);
+            dept_show.setText(departmentName);
+            teacher_name_show.setText(Name);
+        } else {
+            contactnumber_show.setText("Contact Number not found");
+            email_show.setText("Email not found");
+            dept_show.setText("Department not found");
+            teacher_name_show.setText("Name not found");
+        }
+        
+        // Close the result set, statement, and connection
+        rs.close();
+        pst.close();
+        teacher_name_show.setEditable(false);
+        contactnumber_show.setEditable(false);
+        email_show.setEditable(false);
+        dept_show.setEditable(false);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -295,30 +358,29 @@ public class Dashboard_teacher extends javax.swing.JFrame {
     }//GEN-LAST:event_settings_buttonActionPerformed
 
     private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
-        JFrame teacherDashboardFrame = new Dashboard_teacher();
+        Dashboard_teacher teacherDashboardFrame = new Dashboard_teacher();
         teacherDashboardFrame.setVisible(true);
-
-        // Close the current dashboard window
+        teacherDashboardFrame.setUsername(username);
         dispose();
     }//GEN-LAST:event_Dashboard_buttonActionPerformed
 
     private void courses_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courses_buttonActionPerformed
-        JFrame teacherCourseFrame = new teacher_courses_page();
+        teacher_courses_page teacherCourseFrame = new teacher_courses_page();
         teacherCourseFrame.setVisible(true);
+        teacherCourseFrame.setUsername(username);
         dispose();
     }//GEN-LAST:event_courses_buttonActionPerformed
 
     private void accout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accout_buttonActionPerformed
-        JFrame teacherAccountFrame = new account_page_teacher();
+        account_page_teacher teacherAccountFrame = new account_page_teacher();
         teacherAccountFrame.setVisible(true);
+        teacherAccountFrame.setUsername(username);        
         dispose();
     }//GEN-LAST:event_accout_buttonActionPerformed
 
     private void logout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_buttonActionPerformed
-        JFrame teacherLoginFrame = new Login_Teacher();
+        Login_Teacher teacherLoginFrame = new Login_Teacher();
         teacherLoginFrame.setVisible(true);
-
-        // Close the current dashboard window
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
 

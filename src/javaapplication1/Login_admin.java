@@ -134,6 +134,7 @@ public class Login_admin extends javax.swing.JFrame {
             // Successful login
             JOptionPane.showMessageDialog(this, "Login Successful!");
             students_admin studentsAdmin = new students_admin();
+            studentsAdmin.setUsername(enteredUsername);
             studentsAdmin.setVisible(true);
 
             // Close the current Login_Student JFrame

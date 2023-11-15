@@ -5,12 +5,73 @@
 package javaapplication1;
 import java.io.File;
 import javax.swing.JFileChooser;
-        
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
 import javax.swing.JFrame;
+import java.sql.PreparedStatement;
+
 public class account_page_student extends javax.swing.JFrame {
+    String contactNumber;
+    String email;
+    String firstName;
+    String lastName;
+            
+    Connection conn = null;
+    ResultSet rs = null;
+    private String username;
+    public void setUsername(String username) {
+    this.username = username;
+    setStudentInfoFromDatabaseAndFullName();
+}
     public account_page_student() {
         initComponents();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CUET_Students_Project?zeroDateTimeBehavior=CONVERT_TO_NULL","root",""); 
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
     }
+    public void setStudentInfoFromDatabaseAndFullName() {
+    try {
+        String query = "SELECT Contact_Number, Email, dpt_name, First_Name, Last_Name FROM student WHERE Student_ID = ?";
+        PreparedStatement pst = conn.prepareStatement(query);
+        
+        // Set the Student_ID parameter to retrieve the information for a specific student (you can change this to match your use case)
+        pst.setString(1, username); // Assuming 'username' is the student ID
+        
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            
+            
+             contactNumber = rs.getString("Contact_Number");
+            email = rs.getString("Email");
+            firstName = rs.getString("First_Name");
+            lastName = rs.getString("Last_Name");
+            
+            student_contactnumber.setText(contactNumber);
+            student_email.setText(email);
+            student_first_name.setText(firstName);
+            student_last_name.setText(lastName);
+        } else {
+           
+            student_contactnumber.setText("Contact Number not found");
+            student_email.setText("Email not found");
+            student_first_name.setText("Name not found");
+            student_last_name.setText("Name not found");
+        }
+        
+        // Close the result set, statement, and connection
+        rs.close();
+        pst.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -117,13 +178,11 @@ public class account_page_student extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         Contact_number6 = new javax.swing.JLabel();
-        student_name_show3 = new javax.swing.JTextField();
-        email_modify = new javax.swing.JTextField();
-        contactnumber_modify = new javax.swing.JTextField();
-        student_name_show4 = new javax.swing.JTextField();
+        student_first_name = new javax.swing.JTextField();
+        student_email = new javax.swing.JTextField();
+        student_contactnumber = new javax.swing.JTextField();
+        student_last_name = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        address_label = new javax.swing.JLabel();
-        contactnumber_modify1 = new javax.swing.JTextField();
         req_modify_button = new javax.swing.JButton();
         jTabbedPane15 = new javax.swing.JTabbedPane();
         jTabbedPane16 = new javax.swing.JTabbedPane();
@@ -1078,97 +1137,89 @@ public class account_page_student extends javax.swing.JFrame {
         Contact_number6.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
         Contact_number6.setText("Contact Number");
 
-        student_name_show3.setBackground(new java.awt.Color(242, 242, 242));
-        student_name_show3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_name_show3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_name_show3.addActionListener(new java.awt.event.ActionListener() {
+        student_first_name.setBackground(new java.awt.Color(242, 242, 242));
+        student_first_name.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        student_first_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        student_first_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_name_show3ActionPerformed(evt);
+                student_first_nameActionPerformed(evt);
             }
         });
 
-        email_modify.setBackground(new java.awt.Color(242, 242, 242));
-        email_modify.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        email_modify.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        email_modify.addActionListener(new java.awt.event.ActionListener() {
+        student_email.setBackground(new java.awt.Color(242, 242, 242));
+        student_email.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        student_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        student_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email_modifyActionPerformed(evt);
+                student_emailActionPerformed(evt);
             }
         });
 
-        contactnumber_modify.setBackground(new java.awt.Color(242, 242, 242));
-        contactnumber_modify.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        contactnumber_modify.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        contactnumber_modify.addActionListener(new java.awt.event.ActionListener() {
+        student_contactnumber.setBackground(new java.awt.Color(242, 242, 242));
+        student_contactnumber.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        student_contactnumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        student_contactnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactnumber_modifyActionPerformed(evt);
+                student_contactnumberActionPerformed(evt);
             }
         });
 
-        student_name_show4.setBackground(new java.awt.Color(242, 242, 242));
-        student_name_show4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        student_name_show4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        student_name_show4.addActionListener(new java.awt.event.ActionListener() {
+        student_last_name.setBackground(new java.awt.Color(242, 242, 242));
+        student_last_name.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        student_last_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        student_last_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                student_name_show4ActionPerformed(evt);
+                student_last_nameActionPerformed(evt);
             }
         });
 
         jLabel17.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
         jLabel17.setText("Last Name");
 
-        address_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        address_label.setText("Address");
-
-        contactnumber_modify1.setBackground(new java.awt.Color(242, 242, 242));
-        contactnumber_modify1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        contactnumber_modify1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        contactnumber_modify1.addActionListener(new java.awt.event.ActionListener() {
+        req_modify_button.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
+        req_modify_button.setText("Modify");
+        req_modify_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactnumber_modify1ActionPerformed(evt);
+                req_modify_buttonActionPerformed(evt);
             }
         });
-
-        req_modify_button.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
-        req_modify_button.setText("Request Modify");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jTabbedPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(student_first_name)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(student_name_show3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(student_name_show4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(req_modify_button))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(address_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Contact_number6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(email_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(contactnumber_modify1)
-                                .addComponent(contactnumber_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jTabbedPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(student_last_name))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(Contact_number6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(student_email, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(student_contactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(362, 362, 362)))
                 .addContainerGap())
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(368, 368, 368)
+                .addComponent(req_modify_button)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1179,24 +1230,20 @@ public class account_page_student extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_name_show3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(student_first_name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(student_name_show4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(student_last_name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(email_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(student_email, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Contact_number6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contactnumber_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contactnumber_modify1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(student_contactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(req_modify_button)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(422, Short.MAX_VALUE))
         );
 
         jPanel9.add(jPanel10);
@@ -1392,7 +1439,7 @@ public class account_page_student extends javax.swing.JFrame {
     }//GEN-LAST:event_accout_button2ActionPerformed
 
     private void logout_button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_button2ActionPerformed
-        JFrame studentLoginFrame = new Login_Student();
+        Login_Student studentLoginFrame = new Login_Student();
         studentLoginFrame.setVisible(true);
 
         // Close the current dashboard window
@@ -1432,52 +1479,88 @@ public class account_page_student extends javax.swing.JFrame {
     }//GEN-LAST:event_settings_button3ActionPerformed
 
     private void Dashboard_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_button3ActionPerformed
-        JFrame studentDashboardFrame = new Dashboard_student();
+        Dashboard_student studentDashboardFrame = new Dashboard_student();
         studentDashboardFrame.setVisible(true);
+        studentDashboardFrame.setUsername(username); 
 
         // Close the current dashboard window
         dispose();
     }//GEN-LAST:event_Dashboard_button3ActionPerformed
 
     private void terms_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terms_buttonActionPerformed
-        JFrame studentTermsFrame = new Student_terms();
+        Student_terms studentTermsFrame = new Student_terms();
         studentTermsFrame.setVisible(true);
+        studentTermsFrame.setUsername(username); 
         dispose();
     }//GEN-LAST:event_terms_buttonActionPerformed
 
     private void accout_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accout_button3ActionPerformed
-        JFrame studentAccountFrame = new account_page_student();
+        account_page_student studentAccountFrame = new account_page_student();
         studentAccountFrame.setVisible(true);
+        studentAccountFrame.setUsername(username);
         dispose();
     }//GEN-LAST:event_accout_button3ActionPerformed
 
     private void logout_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_button3ActionPerformed
-        JFrame studentLoginFrame = new Login_Student();
+        Login_Student studentLoginFrame = new Login_Student();
         studentLoginFrame.setVisible(true);
 
         // Close the current dashboard window
         dispose();
     }//GEN-LAST:event_logout_button3ActionPerformed
 
-    private void student_name_show3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_name_show3ActionPerformed
+    private void student_first_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_first_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_student_name_show3ActionPerformed
+    }//GEN-LAST:event_student_first_nameActionPerformed
 
-    private void email_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_modifyActionPerformed
+    private void student_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_email_modifyActionPerformed
+    }//GEN-LAST:event_student_emailActionPerformed
 
-    private void contactnumber_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnumber_modifyActionPerformed
+    private void student_contactnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_contactnumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactnumber_modifyActionPerformed
+    }//GEN-LAST:event_student_contactnumberActionPerformed
 
-    private void student_name_show4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_name_show4ActionPerformed
+    private void student_last_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_last_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_student_name_show4ActionPerformed
+    }//GEN-LAST:event_student_last_nameActionPerformed
 
-    private void contactnumber_modify1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnumber_modify1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactnumber_modify1ActionPerformed
+    private void req_modify_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_req_modify_buttonActionPerformed
+
+    try {
+        String newContactNumber = student_contactnumber.getText();
+        String newEmail = student_email.getText();
+        String newFirstName = student_first_name.getText();
+        String newLastName = student_last_name.getText();
+        
+        String updateQuery = "UPDATE Student SET Contact_Number=?, Email=?, First_Name=?, Last_Name=? WHERE Student_ID=?";
+        PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
+        
+        // Set parameters
+        updateStatement.setString(1, newContactNumber);
+        updateStatement.setString(2, newEmail);
+        updateStatement.setString(3, newFirstName);
+        updateStatement.setString(4, newLastName);
+        updateStatement.setString(5, username); // Assuming 'username' is the student ID
+        
+        // Execute update
+        int rowsAffected = updateStatement.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            // Update successful
+            System.out.println("Student information updated successfully.");
+        } else {
+            // Update failed
+            System.out.println("Failed to update student information.");
+        }
+        
+        // Close the statement
+        updateStatement.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    }//GEN-LAST:event_req_modify_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1539,13 +1622,9 @@ public class account_page_student extends javax.swing.JFrame {
     private javax.swing.JButton accout_button1;
     private javax.swing.JButton accout_button2;
     private javax.swing.JButton accout_button3;
-    private javax.swing.JLabel address_label;
-    private javax.swing.JTextField contactnumber_modify;
-    private javax.swing.JTextField contactnumber_modify1;
     private javax.swing.JButton courses_button;
     private javax.swing.JButton courses_button1;
     private javax.swing.JButton courses_button2;
-    private javax.swing.JTextField email_modify;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
@@ -1609,26 +1688,28 @@ public class account_page_student extends javax.swing.JFrame {
     private javax.swing.JTextField student_advisor_show;
     private javax.swing.JTextField student_advisor_show1;
     private javax.swing.JTextField student_advisor_show2;
+    private javax.swing.JTextField student_contactnumber;
     private javax.swing.JTextField student_contactnumber_show;
     private javax.swing.JTextField student_contactnumber_show1;
     private javax.swing.JTextField student_contactnumber_show2;
     private javax.swing.JTextField student_dept_show;
     private javax.swing.JTextField student_dept_show1;
     private javax.swing.JTextField student_dept_show2;
+    private javax.swing.JTextField student_email;
     private javax.swing.JTextField student_email_show;
     private javax.swing.JTextField student_email_show1;
     private javax.swing.JTextField student_email_show2;
+    private javax.swing.JTextField student_first_name;
     private javax.swing.JTextField student_hall_show;
     private javax.swing.JTextField student_hall_show1;
     private javax.swing.JTextField student_hall_show2;
     private javax.swing.JTextField student_id_show;
     private javax.swing.JTextField student_id_show1;
     private javax.swing.JTextField student_id_show2;
+    private javax.swing.JTextField student_last_name;
     private javax.swing.JTextField student_name_show;
     private javax.swing.JTextField student_name_show1;
     private javax.swing.JTextField student_name_show2;
-    private javax.swing.JTextField student_name_show3;
-    private javax.swing.JTextField student_name_show4;
     private javax.swing.JButton terms_button;
     // End of variables declaration//GEN-END:variables
 }

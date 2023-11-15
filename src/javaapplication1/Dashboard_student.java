@@ -12,11 +12,12 @@ public class Dashboard_student extends javax.swing.JFrame {
     ResultSet rs = null;
     private String username;
     public void setUsername(String username) {
-        this.username = username;
-        student_id_show.setText(username);
-        student_id_show.setEditable(false);
-        setFullNameInTextField();
-    }
+    this.username = username;
+    student_id_show.setText(username);
+    student_id_show.setEditable(false);
+    setStudentInfoFromDatabaseAndFullName();
+}
+
     
     public Dashboard_student() {
         initComponents();
@@ -31,35 +32,59 @@ public class Dashboard_student extends javax.swing.JFrame {
         }
     }
     
-    public void setFullNameInTextField() {
+    public void setStudentInfoFromDatabaseAndFullName() {
     try {
-        // Assuming you have a PreparedStatement to execute a query
-        String query = "SELECT First_Name, Last_Name FROM student WHERE Student_ID = ?"; // Adjust the query as needed
+        String query = "SELECT Advisor, Hall, Contact_Number, Email, dpt_name, First_Name, Last_Name FROM student WHERE Student_ID = ?";
         PreparedStatement pst = conn.prepareStatement(query);
         
-        // Set the Student_ID parameter to retrieve the name for a specific student (you can change this to match your use case)
-        pst.setString(1, username); // Assuming 'username' is the student ID
+        // Set the Student_ID parameter to retrieve the information for a specific student (you can change this to match your use case)
+        pst.setString(1, username); 
         
         ResultSet rs = pst.executeQuery();
         
         if (rs.next()) {
+            String advisor = rs.getString("Advisor");
+            String hall = rs.getString("Hall");
+            String contactNumber = rs.getString("Contact_Number");
+            String email = rs.getString("Email");
+            String departmentName = rs.getString("dpt_name");
             String firstName = rs.getString("First_Name");
             String lastName = rs.getString("Last_Name");
             
-            // Concatenate the first name and last name and set it in the JTextField
+            student_advisor_show.setText(advisor);
+            student_hall_show.setText(hall);
+            student_contactnumber_show.setText(contactNumber);
+            student_email_show.setText(email);
+            student_dept_show.setText(departmentName);
+            
+            // Set the full name in the student_name_show JTextField
             student_name_show.setText(firstName + " " + lastName);
         } else {
             // Handle the case where no student is found with the given Student_ID
-            student_name_show.setText("Student not found");
+            // You can clear the fields or show an error message
+            student_advisor_show.setText("Advisor not found");
+            student_hall_show.setText("Hall not found");
+            student_contactnumber_show.setText("Contact Number not found");
+            student_email_show.setText("Email not found");
+            student_dept_show.setText("Department not found");
+            student_name_show.setText("Name not found");
         }
         
         // Close the result set, statement, and connection
         rs.close();
         pst.close();
+        student_name_show.setEditable(false);
+        student_advisor_show.setEditable(false);
+        student_hall_show.setEditable(false);
+        student_contactnumber_show.setEditable(false);
+        student_email_show.setEditable(false);
+        student_dept_show.setEditable(false);
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
+            
+
 
     
 
@@ -398,27 +423,28 @@ public class Dashboard_student extends javax.swing.JFrame {
     }//GEN-LAST:event_settings_buttonActionPerformed
 
     private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
-        JFrame studentDashboardFrame = new Dashboard_student();
+        Dashboard_student studentDashboardFrame = new Dashboard_student();
         studentDashboardFrame.setVisible(true);
-
-        // Close the current dashboard window
+        studentDashboardFrame.setUsername(username);
         dispose();
     }//GEN-LAST:event_Dashboard_buttonActionPerformed
 
     private void terms_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terms_buttonActionPerformed
-        JFrame studentTermsFrame = new Student_terms();
+        Student_terms studentTermsFrame = new Student_terms();
         studentTermsFrame.setVisible(true);
+        studentTermsFrame.setUsername(username); 
         dispose();
     }//GEN-LAST:event_terms_buttonActionPerformed
 
     private void accout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accout_buttonActionPerformed
-        JFrame studentAccountFrame = new account_page_student();
+        account_page_student studentAccountFrame = new account_page_student();
         studentAccountFrame.setVisible(true);
+        studentAccountFrame.setUsername(username); 
         dispose();
     }//GEN-LAST:event_accout_buttonActionPerformed
 
     private void logout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_buttonActionPerformed
-        JFrame studentLoginFrame = new Login_Student();
+        Login_Student studentLoginFrame = new Login_Student();
         studentLoginFrame.setVisible(true);
 
         // Close the current dashboard window
