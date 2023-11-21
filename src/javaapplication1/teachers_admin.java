@@ -1,4 +1,5 @@
 package javaapplication1;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
@@ -10,8 +11,10 @@ public class teachers_admin extends javax.swing.JFrame {
     ResultSet rs = null;
     private String username;
     public void setUsername(String username) {
-    this.username = username;    
+        
+    this.username = username;  
 }
+    
     public teachers_admin() {
         initComponents();
         try{
@@ -23,31 +26,25 @@ public class teachers_admin extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
+
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        settings_button = new javax.swing.JButton();
         Students_button_admin = new javax.swing.JButton();
         Teachers_button_admin = new javax.swing.JButton();
         courses_button_admin = new javax.swing.JButton();
         logout_button = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jTabbedPane4 = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        teacherID_label = new javax.swing.JLabel();
-        teacherName_label = new javax.swing.JLabel();
-        Department_label = new javax.swing.JLabel();
-        email_label = new javax.swing.JLabel();
-        Contact_number_label = new javax.swing.JLabel();
-        teacher_id_show = new javax.swing.JTextField();
-        teacher_name_show = new javax.swing.JTextField();
-        dept_show = new javax.swing.JTextField();
-        email_show = new javax.swing.JTextField();
-        contactnumber_show = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
+        jTabbedPane13 = new javax.swing.JTabbedPane();
+        jTabbedPane14 = new javax.swing.JTabbedPane();
+        new_teacher_button = new javax.swing.JButton();
+        modify_teacher_button = new javax.swing.JButton();
+        teacher_search_button = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         CUET_logo = new javax.swing.JLabel();
         CUET_name = new java.awt.Label();
@@ -58,18 +55,6 @@ public class teachers_admin extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
         jPanel1.setLayout(null);
-
-        settings_button.setBackground(new java.awt.Color(215, 215, 215));
-        settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button.setText("Settings");
-        settings_button.setIconTextGap(10);
-        settings_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settings_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(settings_button);
-        settings_button.setBounds(10, 640, 170, 40);
 
         Students_button_admin.setBackground(new java.awt.Color(148, 169, 216));
         Students_button_admin.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
@@ -126,133 +111,49 @@ public class teachers_admin extends javax.swing.JFrame {
         jPanel1.add(jTabbedPane4);
         jTabbedPane4.setBounds(170, -20, 0, 1);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
+        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel10.add(jTabbedPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 0, 1030, -1));
+        jPanel10.add(jTabbedPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        teacherID_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        teacherID_label.setText("Teacher ID");
-
-        teacherName_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        teacherName_label.setText("Teacher Name");
-
-        Department_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Department_label.setText("Department");
-
-        email_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        email_label.setText("E-mail");
-
-        Contact_number_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Contact_number_label.setText("Contact Number");
-
-        teacher_id_show.setBackground(new java.awt.Color(242, 242, 242));
-        teacher_id_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        teacher_id_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        teacher_id_show.addActionListener(new java.awt.event.ActionListener() {
+        new_teacher_button.setBackground(new java.awt.Color(57, 110, 186));
+        new_teacher_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        new_teacher_button.setForeground(new java.awt.Color(255, 255, 255));
+        new_teacher_button.setText("New Teacher Add");
+        new_teacher_button.setBorder(null);
+        new_teacher_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacher_id_showActionPerformed(evt);
+                new_teacher_buttonActionPerformed(evt);
             }
         });
+        jPanel10.add(new_teacher_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 304, 38));
 
-        teacher_name_show.setBackground(new java.awt.Color(242, 242, 242));
-        teacher_name_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        teacher_name_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        teacher_name_show.addActionListener(new java.awt.event.ActionListener() {
+        modify_teacher_button.setBackground(new java.awt.Color(57, 110, 186));
+        modify_teacher_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        modify_teacher_button.setForeground(new java.awt.Color(255, 255, 255));
+        modify_teacher_button.setText("Modify Teacher");
+        modify_teacher_button.setBorder(null);
+        modify_teacher_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacher_name_showActionPerformed(evt);
+                modify_teacher_buttonActionPerformed(evt);
             }
         });
+        jPanel10.add(modify_teacher_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 304, 38));
 
-        dept_show.setBackground(new java.awt.Color(242, 242, 242));
-        dept_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        dept_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        dept_show.addActionListener(new java.awt.event.ActionListener() {
+        teacher_search_button.setBackground(new java.awt.Color(57, 110, 186));
+        teacher_search_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        teacher_search_button.setForeground(new java.awt.Color(255, 255, 255));
+        teacher_search_button.setText("Search Teacher");
+        teacher_search_button.setBorder(null);
+        teacher_search_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dept_showActionPerformed(evt);
+                teacher_search_buttonActionPerformed(evt);
             }
         });
+        jPanel10.add(teacher_search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 304, 38));
 
-        email_show.setBackground(new java.awt.Color(242, 242, 242));
-        email_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        email_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        email_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email_showActionPerformed(evt);
-            }
-        });
-
-        contactnumber_show.setBackground(new java.awt.Color(242, 242, 242));
-        contactnumber_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        contactnumber_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        contactnumber_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactnumber_showActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(Department_label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(email_label, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(teacherName_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(email_show)
-                                    .addComponent(teacher_name_show)
-                                    .addComponent(dept_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(teacherID_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Contact_number_label))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(contactnumber_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(teacher_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(teacherID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(teacher_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(teacher_name_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(teacherName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Department_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dept_show, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(email_show, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(email_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contact_number_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contactnumber_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(390, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel4);
-        jPanel4.setBounds(200, 30, 1026, 646);
+        jPanel1.add(jPanel10);
+        jPanel10.setBounds(190, 30, 1040, 630);
 
         CUET_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
         CUET_logo.setText("jLabel1");
@@ -307,10 +208,6 @@ public class teachers_admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void settings_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_settings_buttonActionPerformed
-
     private void Students_button_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Students_button_adminActionPerformed
         students_admin studentDashboardFrame = new students_admin();
         studentDashboardFrame.setVisible(true);
@@ -339,25 +236,26 @@ public class teachers_admin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
 
-    private void teacher_id_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_id_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacher_id_showActionPerformed
+    private void new_teacher_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_teacher_buttonActionPerformed
+        new_teachers_admin studentAccountFrame = new new_teachers_admin();
+        studentAccountFrame.setVisible(true);
+        studentAccountFrame.setUsername(username);
+        dispose();
+    }//GEN-LAST:event_new_teacher_buttonActionPerformed
 
-    private void teacher_name_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_name_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacher_name_showActionPerformed
+    private void modify_teacher_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_teacher_buttonActionPerformed
+        modify_teachers_admin studentAccountFrame = new modify_teachers_admin();
+        studentAccountFrame.setVisible(true);
+        studentAccountFrame.setUsername(username);
+        dispose();
+    }//GEN-LAST:event_modify_teacher_buttonActionPerformed
 
-    private void dept_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dept_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dept_showActionPerformed
-
-    private void email_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_email_showActionPerformed
-
-    private void contactnumber_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnumber_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactnumber_showActionPerformed
+    private void teacher_search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_search_buttonActionPerformed
+        search_teachers_admin studentAccountFrame = new search_teachers_admin();
+        studentAccountFrame.setVisible(true);
+        studentAccountFrame.setUsername(username);
+        dispose();
+    }//GEN-LAST:event_teacher_search_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,6 +286,18 @@ public class teachers_admin extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -400,27 +310,19 @@ public class teachers_admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CUET_logo;
     private java.awt.Label CUET_name;
-    private javax.swing.JLabel Contact_number_label;
-    private javax.swing.JLabel Department_label;
     private javax.swing.JButton Students_button_admin;
     private javax.swing.JButton Teachers_button_admin;
-    private javax.swing.JTextField contactnumber_show;
     private javax.swing.JButton courses_button_admin;
-    private javax.swing.JTextField dept_show;
-    private javax.swing.JLabel email_label;
-    private javax.swing.JTextField email_show;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane13;
+    private javax.swing.JTabbedPane jTabbedPane14;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton logout_button;
-    private javax.swing.JButton settings_button;
-    private javax.swing.JLabel teacherID_label;
-    private javax.swing.JLabel teacherName_label;
-    private javax.swing.JTextField teacher_id_show;
-    private javax.swing.JTextField teacher_name_show;
+    private javax.swing.JButton modify_teacher_button;
+    private javax.swing.JButton new_teacher_button;
+    private javax.swing.JButton teacher_search_button;
     // End of variables declaration//GEN-END:variables
 }

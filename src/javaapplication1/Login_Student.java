@@ -112,6 +112,11 @@ public class Login_Student extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(47, 110, 186));
         jButton2.setText("Forget Password");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2);
         jButton2.setBounds(260, 190, 130, 23);
 
@@ -167,6 +172,11 @@ public class Login_Student extends javax.swing.JFrame {
     private void student_pass_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_pass_fieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_student_pass_fieldActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            forget_password_student dashboardStudent = new forget_password_student();
+            dashboardStudent.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

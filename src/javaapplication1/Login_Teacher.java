@@ -104,6 +104,11 @@ public class Login_Teacher extends javax.swing.JFrame {
         forget_pass_button.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
         forget_pass_button.setForeground(new java.awt.Color(47, 110, 186));
         forget_pass_button.setText("Forget Password");
+        forget_pass_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forget_pass_buttonActionPerformed(evt);
+            }
+        });
         jPanel2.add(forget_pass_button);
         forget_pass_button.setBounds(260, 190, 130, 23);
 
@@ -171,6 +176,11 @@ public class Login_Teacher extends javax.swing.JFrame {
     private void teacher_pass_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_pass_fieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teacher_pass_fieldActionPerformed
+
+    private void forget_pass_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forget_pass_buttonActionPerformed
+        forget_password_teacher dashboardStudent = new forget_password_teacher();
+        dashboardStudent.setVisible(true);
+    }//GEN-LAST:event_forget_pass_buttonActionPerformed
 
    
     public static void main(String args[]) {

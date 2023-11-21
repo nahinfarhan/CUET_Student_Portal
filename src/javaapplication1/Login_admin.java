@@ -36,7 +36,6 @@ public class Login_admin extends javax.swing.JFrame {
         label2 = new java.awt.Label();
         label4 = new java.awt.Label();
         SignInButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -104,13 +103,6 @@ public class Login_admin extends javax.swing.JFrame {
         jPanel2.add(SignInButton);
         SignInButton.setBounds(50, 190, 75, 25);
 
-        jButton2.setBackground(new java.awt.Color(242, 242, 242));
-        jButton2.setFont(new java.awt.Font("Chakra Petch", 0, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(47, 110, 186));
-        jButton2.setText("Forget Password");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(260, 190, 130, 23);
-
         getContentPane().add(jPanel2);
         jPanel2.setBounds(180, 190, 440, 250);
 
@@ -163,7 +155,6 @@ public class Login_admin extends javax.swing.JFrame {
     private javax.swing.JButton SignInButton;
     private javax.swing.JPasswordField admin_pass_field;
     private javax.swing.JTextField admin_username_text;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;

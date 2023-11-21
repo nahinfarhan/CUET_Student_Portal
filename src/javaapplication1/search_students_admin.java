@@ -30,7 +30,6 @@ public class search_students_admin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        settings_button = new javax.swing.JButton();
         Students_button_admin = new javax.swing.JButton();
         Teachers_button_admin = new javax.swing.JButton();
         courses_button_admin = new javax.swing.JButton();
@@ -65,18 +64,6 @@ public class search_students_admin extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
         jPanel1.setLayout(null);
-
-        settings_button.setBackground(new java.awt.Color(215, 215, 215));
-        settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button.setText("Settings");
-        settings_button.setIconTextGap(10);
-        settings_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settings_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(settings_button);
-        settings_button.setBounds(10, 640, 170, 40);
 
         Students_button_admin.setBackground(new java.awt.Color(148, 169, 216));
         Students_button_admin.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
@@ -368,10 +355,6 @@ public class search_students_admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void settings_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_settings_buttonActionPerformed
-
     private void Students_button_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Students_button_adminActionPerformed
         students_admin studentDashboardFrame = new students_admin();
         studentDashboardFrame.setVisible(true);
@@ -529,7 +512,6 @@ public class search_students_admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton logout_button;
-    private javax.swing.JButton settings_button;
     private javax.swing.JTextField student_advisor_show;
     private javax.swing.JTextField student_contactnumber_show;
     private javax.swing.JTextField student_dept_show;

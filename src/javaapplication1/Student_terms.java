@@ -34,7 +34,6 @@ public class Student_terms extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel9 = new javax.swing.JPanel();
-        settings_button3 = new javax.swing.JButton();
         Dashboard_button3 = new javax.swing.JButton();
         terms_button = new javax.swing.JButton();
         accout_button3 = new javax.swing.JButton();
@@ -61,19 +60,6 @@ public class Student_terms extends javax.swing.JFrame {
 
         jPanel9.setPreferredSize(new java.awt.Dimension(800, 380));
         jPanel9.setLayout(null);
-
-        settings_button3.setBackground(new java.awt.Color(215, 215, 215));
-        settings_button3.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/setting_icon.png"))); // NOI18N
-        settings_button3.setText("Settings");
-        settings_button3.setIconTextGap(10);
-        settings_button3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settings_button3ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(settings_button3);
-        settings_button3.setBounds(10, 640, 170, 40);
 
         Dashboard_button3.setBackground(new java.awt.Color(148, 169, 216));
         Dashboard_button3.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
@@ -282,10 +268,6 @@ public class Student_terms extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void settings_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_button3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_settings_button3ActionPerformed
-
     private void Dashboard_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_button3ActionPerformed
         Dashboard_student studentDashboardFrame = new Dashboard_student();
         studentDashboardFrame.setVisible(true);
@@ -314,9 +296,9 @@ public class Student_terms extends javax.swing.JFrame {
     }//GEN-LAST:event_logout_button3ActionPerformed
 
     private void Leve1Term1_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve1Term1_buttonActionPerformed
-        JFrame studentTermsFrame = new Students_terms_nextpage();
-        studentTermsFrame.setVisible(true);
-        dispose();
+//        JFrame studentTermsFrame = new Students_terms_nextpage();
+//        studentTermsFrame.setVisible(true);
+//        dispose(); 13642
     }//GEN-LAST:event_Leve1Term1_buttonActionPerformed
 
     private void Leve1Term2_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve1Term2_buttonActionPerformed
@@ -403,7 +385,6 @@ public class Student_terms extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane15;
     private javax.swing.JTabbedPane jTabbedPane16;
     private javax.swing.JButton logout_button3;
-    private javax.swing.JButton settings_button3;
     private javax.swing.JButton terms_button;
     // End of variables declaration//GEN-END:variables
 }

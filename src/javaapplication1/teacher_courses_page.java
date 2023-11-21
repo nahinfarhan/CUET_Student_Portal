@@ -36,7 +36,6 @@ public class teacher_courses_page extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        settings_button = new javax.swing.JButton();
         Dashboard_button = new javax.swing.JButton();
         courses_button = new javax.swing.JButton();
         accout_button = new javax.swing.JButton();
@@ -44,9 +43,9 @@ public class teacher_courses_page extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane3 = new javax.swing.JTabbedPane();
-        Leve1Term1_button = new javax.swing.JButton();
-        Leve2Term1_button = new javax.swing.JButton();
-        Leve3Term1_button1 = new javax.swing.JButton();
+        Attendence_button = new javax.swing.JButton();
+        ClassTest_button = new javax.swing.JButton();
+        TermFinal_button = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         CUET_logo = new javax.swing.JLabel();
         CUET_name = new java.awt.Label();
@@ -58,19 +57,6 @@ public class teacher_courses_page extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
         jPanel1.setLayout(null);
-
-        settings_button.setBackground(new java.awt.Color(215, 215, 215));
-        settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/setting_icon.png"))); // NOI18N
-        settings_button.setText("Settings");
-        settings_button.setIconTextGap(10);
-        settings_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settings_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(settings_button);
-        settings_button.setBounds(10, 640, 170, 40);
 
         Dashboard_button.setBackground(new java.awt.Color(148, 169, 216));
         Dashboard_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
@@ -128,33 +114,36 @@ public class teacher_courses_page extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
 
-        Leve1Term1_button.setBackground(new java.awt.Color(219, 217, 228));
-        Leve1Term1_button.setFont(new java.awt.Font("Chakra Petch", 1, 16)); // NOI18N
-        Leve1Term1_button.setText("Course-1 ");
-        Leve1Term1_button.setBorder(null);
-        Leve1Term1_button.addActionListener(new java.awt.event.ActionListener() {
+        Attendence_button.setBackground(new java.awt.Color(57, 110, 186));
+        Attendence_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        Attendence_button.setForeground(new java.awt.Color(255, 255, 255));
+        Attendence_button.setText("Attendence");
+        Attendence_button.setBorder(null);
+        Attendence_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Leve1Term1_buttonActionPerformed(evt);
+                Attendence_buttonActionPerformed(evt);
             }
         });
 
-        Leve2Term1_button.setBackground(new java.awt.Color(240, 203, 184));
-        Leve2Term1_button.setFont(new java.awt.Font("Chakra Petch", 1, 16)); // NOI18N
-        Leve2Term1_button.setText("Course-2");
-        Leve2Term1_button.setBorder(null);
-        Leve2Term1_button.addActionListener(new java.awt.event.ActionListener() {
+        ClassTest_button.setBackground(new java.awt.Color(57, 110, 186));
+        ClassTest_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        ClassTest_button.setForeground(new java.awt.Color(255, 255, 255));
+        ClassTest_button.setText("Class Test");
+        ClassTest_button.setBorder(null);
+        ClassTest_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Leve2Term1_buttonActionPerformed(evt);
+                ClassTest_buttonActionPerformed(evt);
             }
         });
 
-        Leve3Term1_button1.setBackground(new java.awt.Color(182, 196, 237));
-        Leve3Term1_button1.setFont(new java.awt.Font("Chakra Petch", 1, 16)); // NOI18N
-        Leve3Term1_button1.setText("Course-3");
-        Leve3Term1_button1.setBorder(null);
-        Leve3Term1_button1.addActionListener(new java.awt.event.ActionListener() {
+        TermFinal_button.setBackground(new java.awt.Color(57, 110, 186));
+        TermFinal_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        TermFinal_button.setForeground(new java.awt.Color(255, 255, 255));
+        TermFinal_button.setText("Term Final");
+        TermFinal_button.setBorder(null);
+        TermFinal_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Leve3Term1_button1ActionPerformed(evt);
+                TermFinal_buttonActionPerformed(evt);
             }
         });
 
@@ -169,11 +158,11 @@ public class teacher_courses_page extends javax.swing.JFrame {
                         .addGap(112, 112, 112)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(370, 370, 370)
+                        .addGap(363, 363, 363)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Leve1Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Leve2Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Leve3Term1_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Attendence_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ClassTest_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TermFinal_button, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -182,13 +171,13 @@ public class teacher_courses_page extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
-                .addComponent(Leve1Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(Attendence_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(Leve2Term1_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ClassTest_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(Leve3Term1_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addComponent(TermFinal_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(387, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4);
@@ -247,10 +236,6 @@ public class teacher_courses_page extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void settings_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_settings_buttonActionPerformed
-
     private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
         Dashboard_teacher teacherDashboardFrame = new Dashboard_teacher();
         teacherDashboardFrame.setVisible(true);
@@ -278,19 +263,23 @@ public class teacher_courses_page extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
 
-    private void Leve1Term1_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve1Term1_buttonActionPerformed
-        JFrame studentTermsFrame = new Students_terms_nextpage();
-        studentTermsFrame.setVisible(true);
+    private void Attendence_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Attendence_buttonActionPerformed
+        Teacher_give_attendance teacherAccountFrame = new Teacher_give_attendance();
+        teacherAccountFrame.setVisible(true);
+        teacherAccountFrame.setUsername(username);        
         dispose();
-    }//GEN-LAST:event_Leve1Term1_buttonActionPerformed
+    }//GEN-LAST:event_Attendence_buttonActionPerformed
 
-    private void Leve2Term1_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve2Term1_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Leve2Term1_buttonActionPerformed
+    private void ClassTest_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassTest_buttonActionPerformed
+        Teacher_give_CT_marks teacherAccountFrame = new Teacher_give_CT_marks();
+        teacherAccountFrame.setVisible(true);
+        teacherAccountFrame.setUsername(username);        
+        dispose();
+    }//GEN-LAST:event_ClassTest_buttonActionPerformed
 
-    private void Leve3Term1_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Leve3Term1_button1ActionPerformed
+    private void TermFinal_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermFinal_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Leve3Term1_button1ActionPerformed
+    }//GEN-LAST:event_TermFinal_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,12 +317,12 @@ public class teacher_courses_page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Attendence_button;
     private javax.swing.JLabel CUET_logo;
     private java.awt.Label CUET_name;
+    private javax.swing.JButton ClassTest_button;
     private javax.swing.JButton Dashboard_button;
-    private javax.swing.JButton Leve1Term1_button;
-    private javax.swing.JButton Leve2Term1_button;
-    private javax.swing.JButton Leve3Term1_button1;
+    private javax.swing.JButton TermFinal_button;
     private javax.swing.JButton accout_button;
     private javax.swing.JButton courses_button;
     private javax.swing.JPanel jPanel1;
@@ -342,6 +331,5 @@ public class teacher_courses_page extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JButton logout_button;
-    private javax.swing.JButton settings_button;
     // End of variables declaration//GEN-END:variables
 }

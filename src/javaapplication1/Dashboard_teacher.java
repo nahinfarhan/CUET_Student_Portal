@@ -78,7 +78,6 @@ public class Dashboard_teacher extends javax.swing.JFrame {
         CUET_logo = new javax.swing.JLabel();
         CUET_name = new java.awt.Label();
         jPanel1 = new javax.swing.JPanel();
-        settings_button = new javax.swing.JButton();
         Dashboard_button = new javax.swing.JButton();
         courses_button = new javax.swing.JButton();
         accout_button = new javax.swing.JButton();
@@ -132,19 +131,6 @@ public class Dashboard_teacher extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 380));
         jPanel1.setLayout(null);
-
-        settings_button.setBackground(new java.awt.Color(215, 215, 215));
-        settings_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
-        settings_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/setting_icon.png"))); // NOI18N
-        settings_button.setText("Settings");
-        settings_button.setIconTextGap(10);
-        settings_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settings_buttonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(settings_button);
-        settings_button.setBounds(10, 640, 170, 40);
 
         Dashboard_button.setBackground(new java.awt.Color(148, 169, 216));
         Dashboard_button.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
@@ -353,10 +339,6 @@ public class Dashboard_teacher extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void settings_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_settings_buttonActionPerformed
-
     private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
         Dashboard_teacher teacherDashboardFrame = new Dashboard_teacher();
         teacherDashboardFrame.setVisible(true);
@@ -457,7 +439,6 @@ public class Dashboard_teacher extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JButton logout_button;
-    private javax.swing.JButton settings_button;
     private javax.swing.JLabel teacherID_label;
     private javax.swing.JLabel teacherName_label;
     private javax.swing.JTextField teacher_id_show;
