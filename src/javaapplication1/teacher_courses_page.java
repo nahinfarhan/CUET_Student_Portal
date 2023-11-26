@@ -278,7 +278,10 @@ public class teacher_courses_page extends javax.swing.JFrame {
     }//GEN-LAST:event_ClassTest_buttonActionPerformed
 
     private void TermFinal_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermFinal_buttonActionPerformed
-        // TODO add your handling code here:
+        Teacher_give_term_final teacherAccountFrame = new Teacher_give_term_final();
+        teacherAccountFrame.setVisible(true);
+        teacherAccountFrame.setUsername(username);        
+        dispose();
     }//GEN-LAST:event_TermFinal_buttonActionPerformed
 
     /**

@@ -72,7 +72,7 @@ public class Teacher_give_attendance extends javax.swing.JFrame {
         ResultSet rs = null;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
-        String s = "SELECT * FROM `TeacherCountsAttendense` Where Course_No = '" + selectedCourse + "' AND Batch = '" + selectedBatch + "'";
+        String s = "SELECT * FROM `TeacherCountsAttendense` Where Course_No = '" + selectedCourse + "' AND Batch = '" + selectedBatch + "' ORDER BY Student_ID ASC";
 
         try {
             ps = con.createStatement();
@@ -543,8 +543,9 @@ public class Teacher_give_attendance extends javax.swing.JFrame {
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery("SELECT Course_No FROM `TeacherTakesCourse` WHERE Teacher_ID = '" + username + "'");
             Set<String> uniqueCourses = new HashSet<>();
-
-            // Iterate over the result set .      
+            
+            // Iterate over the result set .   
+            CourseComboBox.removeAllItems();
             while (rs.next()) {
                 // Retrieve the "Course" value from the current row
                 String name = rs.getString("Course_No");

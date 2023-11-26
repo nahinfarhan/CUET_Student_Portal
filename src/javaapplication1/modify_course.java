@@ -5,14 +5,15 @@ import java.sql.ResultSet;
 import java.sql.DriverManager;
 import javax.swing.JFrame;
 import java.sql.PreparedStatement;
-public class modify_teachers_admin extends javax.swing.JFrame {
+import javax.swing.JOptionPane;
+public class modify_course extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     private String username;
     public void setUsername(String username) {
     this.username = username;    
 }
-    public modify_teachers_admin() {
+    public modify_course() {
         initComponents();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -38,19 +39,17 @@ public class modify_teachers_admin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane3 = new javax.swing.JTabbedPane();
-        jLabel1 = new javax.swing.JLabel();
-        Name = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        Contact_number = new javax.swing.JLabel();
-        teacher_id_show = new javax.swing.JTextField();
-        name_show = new javax.swing.JTextField();
-        teacher_dept_show = new javax.swing.JTextField();
-        teacher_email_show = new javax.swing.JTextField();
-        teacher_contactnumber_show = new javax.swing.JTextField();
         modify_student_button = new javax.swing.JButton();
-        Search_student_button = new javax.swing.JButton();
         delete_student_button1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        course_id_show = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        course_name_show = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        credit_show = new javax.swing.JTextField();
+        semester_label = new javax.swing.JLabel();
+        semester = new javax.swing.JTextField();
+        Search_button = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         CUET_logo = new javax.swing.JLabel();
         CUET_name = new java.awt.Label();
@@ -119,66 +118,6 @@ public class modify_teachers_admin extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
 
-        jLabel1.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel1.setText("Teacher ID");
-
-        Name.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Name.setText("Name");
-
-        jLabel3.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel3.setText("Department");
-
-        jLabel4.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        jLabel4.setText("E-mail");
-
-        Contact_number.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
-        Contact_number.setText("Contact Number");
-
-        teacher_id_show.setBackground(new java.awt.Color(242, 242, 242));
-        teacher_id_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        teacher_id_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        teacher_id_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacher_id_showActionPerformed(evt);
-            }
-        });
-
-        name_show.setBackground(new java.awt.Color(242, 242, 242));
-        name_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        name_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        name_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_showActionPerformed(evt);
-            }
-        });
-
-        teacher_dept_show.setBackground(new java.awt.Color(242, 242, 242));
-        teacher_dept_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        teacher_dept_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        teacher_dept_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacher_dept_showActionPerformed(evt);
-            }
-        });
-
-        teacher_email_show.setBackground(new java.awt.Color(242, 242, 242));
-        teacher_email_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        teacher_email_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        teacher_email_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacher_email_showActionPerformed(evt);
-            }
-        });
-
-        teacher_contactnumber_show.setBackground(new java.awt.Color(242, 242, 242));
-        teacher_contactnumber_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        teacher_contactnumber_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        teacher_contactnumber_show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacher_contactnumber_showActionPerformed(evt);
-            }
-        });
-
         modify_student_button.setBackground(new java.awt.Color(57, 110, 186));
         modify_student_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
         modify_student_button.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,17 +129,6 @@ public class modify_teachers_admin extends javax.swing.JFrame {
             }
         });
 
-        Search_student_button.setBackground(new java.awt.Color(57, 110, 186));
-        Search_student_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
-        Search_student_button.setForeground(new java.awt.Color(255, 255, 255));
-        Search_student_button.setText("Search");
-        Search_student_button.setBorder(null);
-        Search_student_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_student_buttonActionPerformed(evt);
-            }
-        });
-
         delete_student_button1.setBackground(new java.awt.Color(57, 110, 186));
         delete_student_button1.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
         delete_student_button1.setForeground(new java.awt.Color(255, 255, 255));
@@ -209,6 +137,65 @@ public class modify_teachers_admin extends javax.swing.JFrame {
         delete_student_button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_student_button1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
+        jLabel1.setText("Course ID");
+
+        course_id_show.setBackground(new java.awt.Color(242, 242, 242));
+        course_id_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        course_id_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        course_id_show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                course_id_showActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
+        jLabel2.setText("Course Name");
+
+        course_name_show.setBackground(new java.awt.Color(242, 242, 242));
+        course_name_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        course_name_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        course_name_show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                course_name_showActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
+        jLabel5.setText("Credit");
+
+        credit_show.setBackground(new java.awt.Color(242, 242, 242));
+        credit_show.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        credit_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        credit_show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                credit_showActionPerformed(evt);
+            }
+        });
+
+        semester_label.setFont(new java.awt.Font("Chakra Petch", 1, 15)); // NOI18N
+        semester_label.setText("Semester");
+
+        semester.setBackground(new java.awt.Color(242, 242, 242));
+        semester.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        semester.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        semester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                semesterActionPerformed(evt);
+            }
+        });
+
+        Search_button.setBackground(new java.awt.Color(57, 110, 186));
+        Search_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
+        Search_button.setForeground(new java.awt.Color(255, 255, 255));
+        Search_button.setText("Search");
+        Search_button.setBorder(null);
+        Search_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_buttonActionPerformed(evt);
             }
         });
 
@@ -224,32 +211,30 @@ public class modify_teachers_admin extends javax.swing.JFrame {
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(course_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(344, 344, 344))
+                                .addComponent(Search_button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(course_name_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(credit_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(semester_label)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(semester, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(name_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(teacher_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Search_student_button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Contact_number)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(teacher_email_show)
-                                        .addComponent(teacher_dept_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(teacher_contactnumber_show, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(delete_student_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(216, 216, 216)
-                                        .addComponent(modify_student_button, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addComponent(delete_student_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(216, 216, 216)
+                                .addComponent(modify_student_button, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -258,36 +243,31 @@ public class modify_teachers_admin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(teacher_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(course_id_show, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Search_student_button)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Search_button)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(name_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(course_name_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(credit_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(teacher_dept_show, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(teacher_email_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contact_number, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(teacher_contactnumber_show, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(semester_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(semester, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modify_student_button)
                     .addComponent(delete_student_button1))
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -304,9 +284,9 @@ public class modify_teachers_admin extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(16, 16, 16)
                 .addComponent(CUET_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(33, 33, 33)
                 .addComponent(CUET_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(41, 41, 41))
         );
@@ -374,54 +354,53 @@ public class modify_teachers_admin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logout_buttonActionPerformed
 
-    private void teacher_id_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_id_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacher_id_showActionPerformed
-
-    private void name_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_name_showActionPerformed
-
-    private void teacher_dept_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_dept_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacher_dept_showActionPerformed
-
-    private void teacher_email_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_email_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacher_email_showActionPerformed
-
-    private void teacher_contactnumber_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacher_contactnumber_showActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacher_contactnumber_showActionPerformed
-
     private void modify_student_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_student_buttonActionPerformed
-        String SID = teacher_id_show.getText();
+        String SID = course_id_show.getText();
+        String CourseName = course_name_show.getText();
+        String Credit = credit_show.getText();
+        String Semester = semester.getText();
         try {
-        String newContactNumber = teacher_contactnumber_show.getText();
-        String newEmail = teacher_email_show.getText();
-        String newName = name_show.getText();
-        String newDept = teacher_dept_show.getText();
-        
-        
-        String updateQuery = "UPDATE Teacher SET Contact_Number=?, Email=?, Teacher_name, dpt_name=?, WHERE Teacher_ID=?";
+        String updateQuery = "UPDATE Course SET Course_Name = ?, Credit = ?, Semester = ? WHERE Course_No=?";
         PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
         
         // Set parameters
-        updateStatement.setString(1, newContactNumber);
-        updateStatement.setString(2, newEmail);
-        updateStatement.setString(3, newName);
-        updateStatement.setString(4, newDept);       
-        updateStatement.setString(5, SID); // Assuming 'username' is the student ID
+        updateStatement.setString(1, CourseName);
+        updateStatement.setString(2, Credit);
+        updateStatement.setString(3, Semester);
+        updateStatement.setString(4, SID);
         
         // Execute update
         int rowsAffected = updateStatement.executeUpdate();
         
         if (rowsAffected > 0) {
             // Update successful
-            System.out.println("Teacher information updated successfully.");
+            System.out.println("Course information updated successfully.");
         } else {
             // Update failed
-            System.out.println("Failed to update teacher information.");
+            System.out.println("Failed to update course information.");
+        }
+        updateStatement.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+        
+        try {
+        
+        String updateQuery = "UPDATE TeacherPublishesFinalResult SET Credit = ? WHERE Course_No=?";
+        PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
+        
+        // Set parameters
+        updateStatement.setString(1, Credit);
+        updateStatement.setString(2, SID);        
+        // Execute update
+        int rowsAffected = updateStatement.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            // Update successful
+            System.out.println("Course information updated successfully.");
+        } else {
+            // Update failed
+            System.out.println("Failed to update course information.");
         }
         updateStatement.close();
     } catch (Exception e) {
@@ -429,99 +408,56 @@ public class modify_teachers_admin extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_modify_student_buttonActionPerformed
 
-    private void Search_student_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_student_buttonActionPerformed
-        String SID = teacher_id_show.getText();
-        try {
-            String query = "SELECT Contact_Number, Email, dpt_name, Teacher_name  FROM Teacher WHERE Teacher_ID = ?";
-            PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, SID);
-
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-//            String advisor = rs.getString("Advisor");
-//            String hall = rs.getString("Hall");
-                String contactNumber = rs.getString("Contact_Number");
-                String email = rs.getString("Email");
-                String departmentName = rs.getString("dpt_name");
-                String Name = rs.getString("Teacher_name");
-
-                teacher_contactnumber_show.setText(contactNumber);
-                teacher_email_show.setText(email);
-                teacher_dept_show.setText(departmentName);
-                name_show.setText(Name);
-            } else {
-                teacher_contactnumber_show.setText("Contact Number not found");
-                teacher_email_show.setText("Email not found");
-                teacher_dept_show.setText("Department not found");
-                name_show.setText("Name not found");
-            }
-
-            rs.close();
-            pst.close();
-            name_show.setEditable(false);
-            teacher_contactnumber_show.setEditable(false);
-            teacher_email_show.setEditable(false);
-            teacher_dept_show.setEditable(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_Search_student_buttonActionPerformed
-
     private void delete_student_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_student_button1ActionPerformed
         try {
-        String studentID = teacher_id_show.getText(); // Assuming 'student_id_show' is the JTextField displaying student ID
-        String deleteAttendanceQuery = "DELETE FROM TeacherTakesCourse WHERE Teacher_ID=?";
+        String course_No = course_id_show.getText(); // Assuming 'student_id_show' is the JTextField displaying student ID
+        String deleteAttendanceQuery = "DELETE FROM TeacherTakesCourse WHERE Course_No=?";
         PreparedStatement deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
-        deleteAttendanceStatement.setString(1, studentID);
+        deleteAttendanceStatement.setString(1, course_No);
         deleteAttendanceStatement.executeUpdate();
         deleteAttendanceStatement.close();
         
-        deleteAttendanceQuery = "DELETE FROM TeacherCountsAttendense WHERE Teacher_ID=?";
+        deleteAttendanceQuery = "DELETE FROM TeacherGivesCTMark WHERE Course_No=?";
         deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
-        deleteAttendanceStatement.setString(1, studentID);
+        deleteAttendanceStatement.setString(1, course_No);
         deleteAttendanceStatement.executeUpdate();
         deleteAttendanceStatement.close();
         
-        deleteAttendanceQuery = "DELETE FROM TeacherTeachesStudent WHERE Teacher_ID=?";
+        deleteAttendanceQuery = "DELETE FROM TeacherCountsAttendense WHERE Course_No=?";
         deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
-        deleteAttendanceStatement.setString(1, studentID);
-        deleteAttendanceStatement.executeUpdate();
-        deleteAttendanceStatement.close();
-                
-        deleteAttendanceQuery = "DELETE FROM TeacherPublishesFinalResult WHERE Teacher_ID=?";
-        deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
-        deleteAttendanceStatement.setString(1, studentID);
+        deleteAttendanceStatement.setString(1, course_No);
         deleteAttendanceStatement.executeUpdate();
         deleteAttendanceStatement.close();
         
-        deleteAttendanceQuery = "DELETE FROM TeacherGivesCTMarks WHERE Teacher_ID=?";
+        deleteAttendanceQuery = "DELETE FROM TeacherPublishesFinalResult WHERE Course_No=?";
         deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
-        deleteAttendanceStatement.setString(1, studentID);
+        deleteAttendanceStatement.setString(1, course_No);
         deleteAttendanceStatement.executeUpdate();
         deleteAttendanceStatement.close();
+        
+        
         // Deletion query
-        String deleteQuery = "DELETE FROM Teacher WHERE Teacher_ID=?";
+        String deleteQuery = "DELETE FROM Course WHERE Course_No=?";
         
         PreparedStatement deleteStatement = conn.prepareStatement(deleteQuery);
 
         // Set the parameter
-        deleteStatement.setString(1, studentID);
+        deleteStatement.setString(1, course_No);
 
         // Execute deletion
         int rowsAffected = deleteStatement.executeUpdate();
 
         if (rowsAffected > 0) {
             // Deletion successful
-            System.out.println("Teacher information deleted successfully.");
+            System.out.println("Course information deleted successfully.");
+            course_id_show.setText("");
+            course_name_show.setText("");
+            credit_show.setText("");
+            semester.setText("");
             
-            teacher_contactnumber_show.setText("");
-            teacher_email_show.setText("");
-            teacher_dept_show.setText("");
-            name_show.setText("");
         } else {
             // Deletion failed
-            System.out.println("Failed to delete teacher information.");
+            System.out.println("Failed to delete course information.");
         }
 
         // Close the statement
@@ -531,10 +467,59 @@ public class modify_teachers_admin extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_delete_student_button1ActionPerformed
 
+    private void course_id_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_id_showActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_course_id_showActionPerformed
+
+    private void course_name_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_name_showActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_course_name_showActionPerformed
+
+    private void credit_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_credit_showActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_credit_showActionPerformed
+
+    private void semesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_semesterActionPerformed
+
+    private void Search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_buttonActionPerformed
+        String SID = course_id_show.getText();
+        try {
+            String query = "SELECT Course_Name, Credit, Semester FROM Course WHERE Course_No = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, SID);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String CourseName = rs.getString("Course_Name");
+                String Credit = rs.getString("Credit");
+                String Semester = rs.getString("Semester");
+
+                semester.setText(Semester);
+                course_name_show.setText(CourseName);
+                credit_show.setText(Credit);
+            } else {
+                // Handle the case where no student is found with the given Student_ID
+                // You can clear the fields or show an error message
+                semester.setText("Semester not found");
+                course_name_show.setText("Name not found");
+                credit_show.setText("Credit not found");
+            }
+
+            // Close the result set, statement, and connection
+            rs.close();
+            pst.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Search_buttonActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new modify_teachers_admin().setVisible(true);
+                new modify_course().setVisible(true);
             }
         });
     }
@@ -542,16 +527,17 @@ public class modify_teachers_admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CUET_logo;
     private java.awt.Label CUET_name;
-    private javax.swing.JLabel Contact_number;
-    private javax.swing.JLabel Name;
-    private javax.swing.JButton Search_student_button;
+    private javax.swing.JButton Search_button;
     private javax.swing.JButton Students_button_admin;
     private javax.swing.JButton Teachers_button_admin;
+    private javax.swing.JTextField course_id_show;
+    private javax.swing.JTextField course_name_show;
     private javax.swing.JButton courses_button_admin;
+    private javax.swing.JTextField credit_show;
     private javax.swing.JButton delete_student_button1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -561,10 +547,7 @@ public class modify_teachers_admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton logout_button;
     private javax.swing.JButton modify_student_button;
-    private javax.swing.JTextField name_show;
-    private javax.swing.JTextField teacher_contactnumber_show;
-    private javax.swing.JTextField teacher_dept_show;
-    private javax.swing.JTextField teacher_email_show;
-    private javax.swing.JTextField teacher_id_show;
+    private javax.swing.JTextField semester;
+    private javax.swing.JLabel semester_label;
     // End of variables declaration//GEN-END:variables
 }

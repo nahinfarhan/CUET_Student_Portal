@@ -23,7 +23,7 @@ import javaapplication1.students_admin;
 import javaapplication1.teacher_courses_page;
 import javaapplication1.teachers_admin;
 
-public class Teacher_give_CT_marks extends javax.swing.JFrame {
+public class Teacher_give_term_final extends javax.swing.JFrame {
 
     Connection conn = null;
     ResultSet rs = null;
@@ -33,7 +33,7 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
         this.username = username;
     }
 
-    public Teacher_give_CT_marks() {
+    public Teacher_give_term_final() {
         initComponents();
         //fillTable();
         try {
@@ -70,7 +70,7 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
         Connection con = getConnection(); // Assuming you have a method to get a database connection
         Statement ps = null;
         ResultSet rs = null;
-        String c = "SELECT * FROM `TeacherGivesCTMark` WHERE Course_No = '" + selectedCourse + "' ORDER BY Student_ID ASC";
+        String c = "SELECT * FROM `TeacherPublishesFinalResult` WHERE Course_No = '" + selectedCourse + "' ORDER BY Student_ID ASC";
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
         try {
@@ -83,13 +83,15 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
                 row[0] = rs.getInt("Student_ID");
                 row[1] = rs.getString("Batch");
                 row[2] = rs.getString("Course_No");
-                row[3] = rs.getString("Semester");
-                row[4] = rs.getString("CT1");
-                row[5] = rs.getString("CT2");
-                row[6] = rs.getString("CT3");
-                row[7] = rs.getString("CT4");
-                row[8] = rs.getString("CT5");
-                row[9] = rs.getString("BestCount");
+                row[3] = rs.getInt("Semester");
+                row[4] = rs.getInt("SectionA");
+                row[5] = rs.getInt("SectionB");
+                row[6] = rs.getInt("CTMarks");
+                row[7] = rs.getInt("Attendance");
+                row[8] = rs.getInt("TotalMarks");
+                row[9] = rs.getFloat("Credit");
+                row[10] = rs.getFloat("CGPA");
+                row[11] = rs.getString("Grade");
 
                 model.addRow(row);
             }
@@ -116,11 +118,15 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
     public void updateTable() {
         Connection con = getConnection();
         PreparedStatement pst = null;
+        PreparedStatement psct = null;
+        PreparedStatement psatt = null;
+        ResultSet rsct = null;
+        ResultSet rsatt = null;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
         try {
             con.setAutoCommit(false);  // Disable auto-commit for batch processing
-            String updateQuery = "UPDATE TeacherGivesCTMark SET CT1=?, CT2=?, CT3=?, CT4=?, CT5=?, `BestCount`=? WHERE Student_ID=? AND Batch=? AND Course_No=?";
+            String updateQuery = "UPDATE TeacherPublishesFinalResult SET Semester=?, SectionA=?, SectionB=?, CTMarks=?, Attendance=?, TotalMarks=?, Credit=?, CGPA=?, Grade=? WHERE Student_ID=? AND Batch=? AND Course_No=?";
 
             pst = con.prepareStatement(updateQuery);
 
@@ -130,55 +136,156 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
                 String batches = getStringValue(model.getValueAt(i, 1));
                 String course = getStringValue(model.getValueAt(i, 2));
                 String semester = getStringValue(model.getValueAt(i, 3));
-                int ct1 = getIntegerValue(model.getValueAt(i, 4));
-                int ct2 = getIntegerValue(model.getValueAt(i, 5));
-                int ct3 = getIntegerValue(model.getValueAt(i, 6));
-                int ct4 = getIntegerValue(model.getValueAt(i, 7));
-                int ct5 = getIntegerValue(model.getValueAt(i, 8));
+                int secA = getIntegerValue(model.getValueAt(i, 4));
+                int secB = getIntegerValue(model.getValueAt(i, 5));
+                int ct = getIntegerValue(model.getValueAt(i, 6));
+                int att = getIntegerValue(model.getValueAt(i, 7));
+                int tm = getIntegerValue(model.getValueAt(i, 8));
+                double crt = getDoubleValue(model.getValueAt(i, 9));
+                double cg = getDoubleValue(model.getValueAt(i, 10));
+                String grade = getStringValue(model.getValueAt(i, 11));
 
-                // Calculate the sum of the best three CT marks
-                int[] cts = {ct1, ct2, ct3, ct4, ct5};
-                Arrays.sort(cts);
-                for (int j = 0; j < cts.length / 2; j++) {
-                    int temp = cts[j];
-                    cts[j] = cts[cts.length - 1 - j];
-                    cts[cts.length - 1 - j] = temp;
-                }
-                int bestCount = 0;
-                for (int x = 0; x < credit; x++) {
-                    bestCount += cts[x];
-                }
-                //int bestCount = cts[0] + cts[2] + cts[1];  // Sum of the best three CT marks
+                // For CT Marks:
+                String countct = "SELECT `BestCount` FROM `TeacherGivesCTMark` WHERE Student_ID = ? AND Course_No = ?";
+                psct = con.prepareStatement(countct);
+                psct.setInt(1, id);
+                psct.setString(2, course);
+                rsct = psct.executeQuery();
 
-                pst.setInt(1, ct1);
-                pst.setInt(2, ct2);
-                pst.setInt(3, ct3);
-                pst.setInt(4, ct4);
-                pst.setInt(5, ct5);
-                pst.setInt(6, bestCount);
-                pst.setInt(7, id);
-                pst.setString(8, batches);
-                pst.setString(9, course);
+                if (rsct.next()) {
+                    ct = rsct.getInt("BestCount");
+                }
+
+                // For Attendance Marks:
+                int attpr = 0;
+                String countatt = "SELECT `Percentage` FROM `TeacherCountsAttendense` WHERE Student_ID = ? AND Course_No = ?";
+                psatt = con.prepareStatement(countatt);
+                psatt.setInt(1, id);
+                psatt.setString(2, course);
+                rsatt = psatt.executeQuery();
+
+                if (rsatt.next()) {
+                    attpr = rsatt.getInt("Percentage");
+                }
+
+                 if (attpr >= 90) {
+                    att = (int)credit * 10;
+                } else if (attpr <= 89 && attpr >= 85) {
+                    att = ((int)credit * 10 - (int)credit);
+                } else if (attpr <= 84 && attpr >= 80) {
+                    att = ((int)credit * 10 - 2 * (int)credit);
+                } else if (attpr <= 79 && attpr >= 75) {
+                    att = ((int)credit * 10 - 3 * (int)credit);
+                } else if (attpr <= 74 && attpr >= 70) {
+                    att = ((int)credit * 10 - 4 * (int)credit);
+                } else if (attpr <= 69 && attpr >= 65) {
+                    att = ((int)credit * 10 - 5 * (int)credit);
+                } else if (attpr <= 64 && attpr >= 60) {
+                    att = ((int)credit * 10 - 6 * (int)credit);
+                } else {
+                    attpr=0;
+                }
+                crt = credit;
+
+                // Calculate the sum of secA secB ct att
+                int[] cts = {secA, secB, ct, att};
+                tm = 0;
+                for (int x = 0; x < 4; x++) {
+                    tm += cts[x];
+                }
+
+                // Calculate CGPA and Grade based on tm and credit
+                // ...
+                
+
+                // CG Count:
+                int cgpr = 0;
+                double credit10 = credit*100.0;
+                cgpr = (tm * 100) / (int)(credit10);
+                if (cgpr >= 80) {
+                    cg = 4.0;
+                    grade = "A+";
+                } else if (cgpr <= 79 && cgpr >= 75) {
+                    cg = 3.75;
+                    grade = "A";
+
+                } else if (cgpr <= 74 && cgpr >= 70) {
+                    cg = 3.5;
+                    grade = "A-";
+
+                } else if (cgpr <= 69 && cgpr >= 65) {
+                    cg = 3.25;
+                    grade = "B+";
+
+                } else if (cgpr <= 64 && cgpr >= 60) {
+                    cg = 3.00;
+                    grade = "B";
+
+                } else if (cgpr <= 59 && cgpr >= 55) {
+                    cg = 2.75;
+                    grade = "B-";
+
+                } else if (cgpr <= 54 && cgpr >= 50) {
+                    cg = 2.5;
+                    grade = "C+";
+
+                } else if (cgpr <= 49 && cgpr >= 45) {
+                    cg = 2.25;
+                    grade = "C";
+
+                } else if (cgpr <= 44 && cgpr >= 40) {
+                    cg = 2.0;
+                    grade = "D";
+
+                } else {
+                    cg = 0.0;
+                    grade = "F";
+                }
+
+                pst.setString(1, semester);
+                pst.setInt(2, secA);
+                pst.setInt(3, secB);
+                pst.setInt(4, ct);
+                pst.setInt(5, att);
+                pst.setInt(6, tm);
+                pst.setDouble(7, crt);
+                pst.setDouble(8, cg);
+                pst.setString(9, grade);
+                pst.setInt(10, id);
+                pst.setString(11, batches);
+                pst.setString(12, course);
 
                 pst.addBatch();
             }
 
+            // Execute the batch update
             int[] updatedRows = pst.executeBatch();
 
-            con.commit();  // Commit the changes
-            con.setAutoCommit(true);  // Enable auto-commit after batch processing
+            // Commit the changes
+            con.commit();
+
+            // Enable auto-commit after batch processing
+            con.setAutoCommit(true);
 
             System.out.println(updatedRows.length + " rows updated");
 
         } catch (SQLException ex) {
             try {
-                con.rollback();  // Rollback changes in case of an exception
+                // Rollback changes in case of an exception
+                con.rollback();
             } catch (SQLException rollbackEx) {
                 System.err.println("Rollback failed: " + rollbackEx.getMessage());
             }
             Logger.getLogger(Update_All_MySQL_Data_Using_JTable.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
+                // Close resources
+                if (rsct != null) {
+                    rsct.close();
+                }
+                if (rsatt != null) {
+                    rsatt.close();
+                }
                 if (pst != null) {
                     pst.close();
                 }
@@ -215,16 +322,14 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
         accout_button = new javax.swing.JButton();
         logout_button = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         CourseComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1260, 850));
         setMinimumSize(new java.awt.Dimension(1260, 850));
-        setPreferredSize(new java.awt.Dimension(1260, 850));
         getContentPane().setLayout(null);
 
         CUET_logo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons/CUET_Vector_ogo.svg.png"))); // NOI18N
@@ -294,19 +399,6 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Batch", "Course", "Semester", "CT1", "CT2", "CT3", "CT4", "CT5", "Best Count"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 50, 960, 520);
-
         jLabel1.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
         jLabel1.setText("Course");
         jPanel1.add(jLabel1);
@@ -337,6 +429,19 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(480, 590, 140, 40);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Batch", "Course", "Semester", "SectionA", "SectionB", "CTMarks", "Attendance", "TotalMarks", "Credit", "CGPA", "Grade"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(22, 52, 990, 530);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(230, 180, 1060, 670);
 
@@ -344,7 +449,7 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private String selectedCourse;
     private String selectedBatch;
-    private float credit;
+    private double credit;
 
     private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
         Dashboard_teacher teacherDashboardFrame = new Dashboard_teacher();
@@ -385,11 +490,11 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
             ps = con.prepareStatement(countQuery);
             ps.setString(1, selectedCourse);
             countResultSet = ps.executeQuery();
-            credit = 0;
+            credit = 0.0;
             //String batch = null;
 
             if (countResultSet.next()) {
-                credit = countResultSet.getFloat("Credit");
+                credit = countResultSet.getDouble("Credit");
                // batch = countResultSet.getString("Batch");
             }
 
@@ -428,7 +533,7 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
             ResultSet rs = stm.executeQuery("SELECT Course_No FROM `TeacherTakesCourse` WHERE Teacher_ID = '" + username + "'");
             Set<String> uniqueCourses = new HashSet<>();
 
-            // Iterate over the result set .    
+            // Iterate over the result set .      
             CourseComboBox.removeAllItems();
             while (rs.next()) {
                 // Retrieve the "Course" value from the current row
@@ -453,6 +558,8 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
         updateTable();
         clearTable();
         fillTable();
+        clearTable();
+        fillTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -472,20 +579,21 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Teacher_give_CT_marks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher_give_term_final.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Teacher_give_CT_marks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher_give_term_final.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Teacher_give_CT_marks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher_give_term_final.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Teacher_give_CT_marks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher_give_term_final.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Teacher_give_CT_marks().setVisible(true);
+                new Teacher_give_term_final().setVisible(true);
             }
         });
     }
@@ -504,4 +612,15 @@ public class Teacher_give_CT_marks extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton logout_button;
     // End of variables declaration//GEN-END:variables
+
+    private double getDoubleValue(Object valueAt) {
+        try {
+            if (valueAt != null) {
+                return Double.parseDouble(valueAt.toString());
+            }
+        } catch (NumberFormatException e) {
+            // Handle the exception (e.g., log an error message)
+        }
+        return 0.0;
+    }
 }

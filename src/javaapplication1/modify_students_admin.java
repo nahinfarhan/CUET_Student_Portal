@@ -561,7 +561,7 @@ public class modify_students_admin extends javax.swing.JFrame {
         deleteAttendanceStatement.executeUpdate();
         deleteAttendanceStatement.close();
         
-        deleteAttendanceQuery = "DELETE FROM TeacherCountsAttendance WHERE Student_ID=?";
+        deleteAttendanceQuery = "DELETE FROM TeacherCountsAttendense WHERE Student_ID=?";
         deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
         deleteAttendanceStatement.setString(1, studentID);
         deleteAttendanceStatement.executeUpdate();
@@ -579,13 +579,13 @@ public class modify_students_admin extends javax.swing.JFrame {
         deleteAttendanceStatement.executeUpdate();
         deleteAttendanceStatement.close();
         
-        deleteAttendanceQuery = "DELETE FROM CT WHERE Student_ID=?";
-        deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
-        deleteAttendanceStatement.setString(1, studentID);
-        deleteAttendanceStatement.executeUpdate();
-        deleteAttendanceStatement.close();
+//        deleteAttendanceQuery = "DELETE FROM CT WHERE Student_ID=?";
+//        deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
+//        deleteAttendanceStatement.setString(1, studentID);
+//        deleteAttendanceStatement.executeUpdate();
+//        deleteAttendanceStatement.close();
         
-        deleteAttendanceQuery = "DELETE FROM TeacherPublishesResult WHERE Student_ID=?";
+        deleteAttendanceQuery = "DELETE FROM TeacherPublishesFinalResult WHERE Student_ID=?";
         deleteAttendanceStatement = conn.prepareStatement(deleteAttendanceQuery);
         deleteAttendanceStatement.setString(1, studentID);
         deleteAttendanceStatement.executeUpdate();

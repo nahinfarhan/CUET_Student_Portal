@@ -6,9 +6,12 @@ import java.sql.ResultSet;
 import java.sql.DriverManager;
 import javax.swing.JFrame;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
-public class Student_terms extends javax.swing.JFrame {
+public class Student_Term_Final_Show extends javax.swing.JFrame {
 
     Connection conn = null;
     ResultSet rs = null;
@@ -16,16 +19,102 @@ public class Student_terms extends javax.swing.JFrame {
     public void setUsername(String username) {
     this.username = username;
     }
-    
-    public Student_terms() {
+//    String selectedID = username;
+    private int totalColumns;
+    public Student_Term_Final_Show() {
         initComponents();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CUET_Students_Project?zeroDateTimeBehavior=CONVERT_TO_NULL","root",""); 
+//            Statement stm = conn.createStatement();
+//            ResultSet rs = stm.executeQuery("SELECT COUNT(*) AS total_columns FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'TeacherCountsAttendense';");
+//       
+//
+//            // Iterate over the result set
+//            while (rs.next()) {
+//                totalColumns = rs.getInt("total_columns");
+//            }
         }
         catch(Exception e)
         {
             System.out.println(e);
+        }
+//        System.out.println(totalC olumns);
+//         for (int i = 0; i < totalColumns - 5; i++) {
+//            String columnName = "Class" + (i + 1);
+//            DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+//            dtm.addColumn(columnName);
+//         }
+         
+    }
+    public Connection getConnection() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        Connection con = null;
+
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CUET_Students_Project?zeroDateTimeBehavior=CONVERT_TO_NULL","root","");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return con;
+    }
+
+    public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);  // Remove all rows from the table
+    }
+
+    public void fillTable() {
+    Connection con = getConnection(); // Assuming you have a method to get a database connection
+        Statement ps = null;
+        ResultSet rs = null;
+        String c = "SELECT * FROM `TeacherPublishesFinalResult` WHERE Student_ID = '" + username + "'" + " AND Semester = '" + selectedSemester + "'";
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        try {
+            ps = con.createStatement();
+            rs = ps.executeQuery(c);
+
+            while (rs.next()) {
+
+                Object[] row = new Object[jTable1.getColumnCount()];
+                row[0] = rs.getInt("Student_ID");
+                row[1] = rs.getString("Batch");
+                row[2] = rs.getString("Course_No");
+                row[3] = rs.getInt("Semester");
+                row[4] = rs.getInt("SectionA");
+                row[5] = rs.getInt("SectionB");
+                row[6] = rs.getInt("CTMarks");
+                row[7] = rs.getInt("Attendance");
+                row[8] = rs.getInt("TotalMarks");
+                row[9] = rs.getFloat("Credit");
+                row[10] = rs.getFloat("CGPA");
+                row[11] = rs.getString("Grade");
+
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                // Close the ResultSet, Statement, and Connection
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -41,9 +130,10 @@ public class Student_terms extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jTabbedPane13 = new javax.swing.JTabbedPane();
         jTabbedPane14 = new javax.swing.JTabbedPane();
-        Attendence_button = new javax.swing.JButton();
-        ClassTest_button = new javax.swing.JButton();
-        TermFinal_button = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jTabbedPane15 = new javax.swing.JTabbedPane();
         jTabbedPane16 = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
@@ -115,41 +205,38 @@ public class Student_terms extends javax.swing.JFrame {
         jPanel10.add(jTabbedPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 0, 1030, -1));
         jPanel10.add(jTabbedPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        Attendence_button.setBackground(new java.awt.Color(57, 110, 186));
-        Attendence_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
-        Attendence_button.setForeground(new java.awt.Color(255, 255, 255));
-        Attendence_button.setText("Attendence");
-        Attendence_button.setBorder(null);
-        Attendence_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Attendence_buttonActionPerformed(evt);
-            }
-        });
-        jPanel10.add(Attendence_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 304, 38));
+        jLabel1.setFont(new java.awt.Font("Chakra Petch", 1, 18)); // NOI18N
+        jLabel1.setText("Semester");
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        ClassTest_button.setBackground(new java.awt.Color(57, 110, 186));
-        ClassTest_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
-        ClassTest_button.setForeground(new java.awt.Color(255, 255, 255));
-        ClassTest_button.setText("Class Test");
-        ClassTest_button.setBorder(null);
-        ClassTest_button.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.setFont(new java.awt.Font("Chakra Petch", 1, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level-1 Term-1", "Level-1 Term-2", "Level-2 Term-1", "Level-2 Term-2", "Level-3 Term-1", "Level-3 Term-2", "Level-4 Term-1", "Level-4 Term-2" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClassTest_buttonActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel10.add(ClassTest_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 304, 38));
+        jPanel10.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 160, -1));
 
-        TermFinal_button.setBackground(new java.awt.Color(57, 110, 186));
-        TermFinal_button.setFont(new java.awt.Font("Chakra Petch", 1, 24)); // NOI18N
-        TermFinal_button.setForeground(new java.awt.Color(255, 255, 255));
-        TermFinal_button.setText("Term Final");
-        TermFinal_button.setBorder(null);
-        TermFinal_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TermFinal_buttonActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Batch", "Course", "Semester", "SectionA", "SectionB", "CTMarks", "Attendance", "TotalMarks", "Credit", "CGPA", "Grade"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jPanel10.add(TermFinal_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 304, 38));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel10.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1000, 500));
 
         jPanel9.add(jPanel10);
         jPanel10.setBounds(190, 30, 1040, 630);
@@ -238,26 +325,35 @@ public class Student_terms extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logout_button3ActionPerformed
 
-    private void Attendence_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Attendence_buttonActionPerformed
-        Student_Attendence_Show studentAccountFrame = new Student_Attendence_Show();
-        studentAccountFrame.setVisible(true);
-        studentAccountFrame.setUsername(username);
-        dispose();
-    }//GEN-LAST:event_Attendence_buttonActionPerformed
+    private String selectedSemester;
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        
+        String sem = jComboBox1.getSelectedItem().toString();
+        if (sem == "Level-1 Term-1") {
+            selectedSemester = "1";
+        } else if (sem == "Level-1 Term-2") {
+            selectedSemester = "2";
+        } else if (sem == "Level-2 Term-1") {
+            selectedSemester = "3";
+        } else if (sem == "Level-2 Term-2") {
+            selectedSemester = "4";
+        } else if (sem == "Level-3 Term-1") {
+            selectedSemester = "5";
+        } else if (sem == "Level-3 Term-2") {
+            selectedSemester = "6";
+        } else if (sem == "Level-4 Term-1") {
+            selectedSemester = "7";
+        } else if (sem == "Level-4 Term-2") {
+            selectedSemester = "8";
+        }
 
-    private void ClassTest_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassTest_buttonActionPerformed
-        Student_CT_Show studentAccountFrame = new Student_CT_Show();
-        studentAccountFrame.setVisible(true);
-        studentAccountFrame.setUsername(username);
-        dispose();
-    }//GEN-LAST:event_ClassTest_buttonActionPerformed
-
-    private void TermFinal_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermFinal_buttonActionPerformed
-        Student_Term_Final_Show studentAccountFrame = new Student_Term_Final_Show();
-        studentAccountFrame.setVisible(true);
-        studentAccountFrame.setUsername(username);
-        dispose();
-    }//GEN-LAST:event_TermFinal_buttonActionPerformed
+        System.out.println(sem + "\n" + selectedSemester);
+        System.out.println(username + "\n");
+        System.out.println(totalColumns + "\n");
+        clearTable();
+        fillTable();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,39 +372,49 @@ public class Student_terms extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Student_terms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student_Term_Final_Show.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Student_terms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student_Term_Final_Show.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Student_terms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student_Term_Final_Show.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Student_terms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student_Term_Final_Show.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Student_terms().setVisible(true);
+                new Student_Term_Final_Show().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Attendence_button;
     private javax.swing.JLabel CUET_logo2;
     private java.awt.Label CUET_name2;
-    private javax.swing.JButton ClassTest_button;
     private javax.swing.JButton Dashboard_button3;
-    private javax.swing.JButton TermFinal_button;
     private javax.swing.JButton accout_button3;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane13;
     private javax.swing.JTabbedPane jTabbedPane14;
     private javax.swing.JTabbedPane jTabbedPane15;
     private javax.swing.JTabbedPane jTabbedPane16;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton logout_button3;
     private javax.swing.JButton terms_button;
     // End of variables declaration//GEN-END:variables
